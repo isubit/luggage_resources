@@ -1,0 +1,25 @@
+.link-field-url {
+    float:none;
+}
+
+.node-resource .field-name-field-resource-meta .field-item {
+  margin-right: .5em;
+  float:  left;
+  width: 100%;
+}
+
+.node-resource .field-name-field-resource-meta .field-item.odd {
+  background-color:rgba(0,0,0,0.1);
+}
+
+.node-resource .field-name-field-resource-meta .field-item .field-name-field-attribute-type .field-item {
+
+}
+
+.node-resource .field-name-field-resource-meta .field-item .field-name-field-attribute .field-item {
+
+}
+
+.node-resource .field-name-field-resource-meta .field-item .field-name-field-content .field-item {
+
+}

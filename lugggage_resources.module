@@ -1,0 +1,309 @@
+<?php
+/**
+ * @file
+ * Code for the luggage_resources feature.
+ */
+
+include_once 'lugggage_resources.features.inc';
+
+/**
+ * Implements hook_update_projects_alter().
+ */
+function resources_update_projects_alter(&$projects) {
+  // Hide a site-specific module from the list.
+  unset($projects['luggage_resources']);
+}
+
+// Adds CSS to Views
+/**
+ * Implements hook_views_pre_render().
+ */
+function resources_views_pre_render(&$view) {
+  $resources_view = array('luggage_resources', 'luggage_resources');
+  if (in_array($view->name, $resources_view)) {
+    drupal_add_css(drupal_get_path('module', 'luggage_resources') . '/css/luggage_resources.css');
+  }
+}
+
+
+// Adds CSS to view display of luggage_resources node type but not the edit display
+function resources_preprocess_page(&$vars) {
+  // Global node.
+  $node = menu_get_object();
+  if (!empty($node) && $node->type == 'resource' && arg(2) === null) {
+    drupal_add_css(drupal_get_path('module', 'luggage_resources') . '/css/luggage_resources.css');
+  }
+  if (arg(0) == 'node' && arg(1) == 'add' && arg(2) === 'resource') {
+    drupal_add_js(drupal_get_path('module', 'luggage_resources') . '/js/luggage_resources.js');
+    drupal_add_css(drupal_get_path('module', 'luggage_resources') . '/css/luggage_resources.css');
+  }
+}
+
+// Adding support to discover template files
+/**
+ * Implements hook_theme_registry_alter()
+ **/
+function resources_theme_registry_alter(&$theme_registry) {
+  $mod_path = drupal_get_path('module', 'luggage_resources');
+  $theme_registry_copy = $theme_registry;       // munge on a copy
+  _theme_process_registry($theme_registry_copy, 'phptemplate', 'theme_engine', 'pow', $mod_path);
+  $theme_registry += array_diff_key($theme_registry_copy, $theme_registry);
+  $hooks = array('node');
+  foreach ($hooks as $h) {
+    _resources_insert_after_first_element($theme_registry[$h]['theme paths'], $mod_path);
+  }
+}
+
+/**
+ * Helper function for re-ordering arrays (needed by theme_registry_alter)
+ */
+function _resources_insert_after_first_element(&$a, $element) {
+  if(is_array($a)) {
+    $first_element = array_shift($a);
+    array_unshift($a, $first_element, $element);
+  }
+}
+
+function resources_form_resource_node_form_alter(&$form, &$form_state, $form_id) {
+
+  // changes just to the insert form
+  if(arg(1) == 'add') {
+
+    // Hide all except field_uri
+    reset($form);
+    while ($key = key($form)) {
+      $key_prefix = substr($key, 0, 6);
+      if ($key !== "field_uri" && $key_prefix === 'field_') {
+        $form[$key]['#type'] = 'hidden';
+      }
+      next($form);
+    }
+
+    // Adding an After Build where much of the work is done
+    // TODO: There has to be a better way
+    $form['#after_build'][] = 'resources_add_after_build';
+
+    // remove field groups
+    unset($form['#groups']);
+    unset($form['#fieldgroups']);
+    unset($form['#group_children']);
+
+  }
+
+  // disable form fields
+  _disabled_form_fields($form);
+
+  // field_uri after__build and validate works on both upsert
+  $form['field_uri']['#after_build'][] = 'resources_field_uri_after_build';
+  $form['#validate'][] = 'resources_form_resource_node_validate';
+}
+
+// form fields disabled on the insert and update form
+function _disabled_form_fields(&$form) {
+
+  // Array of field machine-names to disable
+  $disabled = array(
+    'field_resource_raw_title',
+    'field_resource_raw_description',
+    'field_resource_meta_keywords',
+    'field_resource_screenshot',
+    'field_resource_request_error',
+    'field_resource_request_code',
+    'field_resource_request_recode',
+    'field_resource_request_reurl',
+    'field_resource_request_inferred_',
+  );
+
+  // Add a few more if insert and not edit form
+  if (arg(1) == 'add') $disabled[] = 'field_resource_title';
+
+  // Set $disabled array to #disabled
+  foreach ($disabled as $disable) {
+    $form[$disable]['#disabled'] = TRUE;
+  }
+}
+
+function resources_form_resource_node_validate($form, &$form_state) {
+
+  // isolate entered url as variable
+  $url = $form_state['values']['field_uri'][LANGUAGE_NONE][0]['url'];
+
+  // return if url is not valid
+  if(!valid_url($url, TRUE)) {
+    form_set_error($form['field_uri'][LANGUAGE_NONE][0]['url'], t('Please make sure to include a protocol (e.g. http://, https://, ftp://).'));
+  } else {
+
+  // Index the url if it is a new entry or set to be re-indexed
+  if (arg(1) == 'add' || $form_state['values']['field_resource_re_index'][LANGUAGE_NONE][0]['value'] == '1') _index_url($form_state, $url);
+
+  // set re-index back to 0
+  $form_state['values']['field_resource_re_index'][LANGUAGE_NONE][0]['value'] = "0";
+  }
+}
+
+function _index_url(&$form_state, $url) {
+
+  // retrieve url and parse out the meta-data
+  $url_data = _get_url_stuff($url);
+  _build_form_state($form_state, $url_data, $form_state['values']['field_resource_re_index'][LANGUAGE_NONE][0]['value']);
+
+  // Get Screenshot into Drupal and add it to the form_state
+  $file = _get_screenshot($url);
+  if ($file == 'FAIL') {
+    drupal_set_message('Unable to download screenshot.', $type = 'error', $repeat = TRUE);
+  } else {
+    $form_state['values']['field_resource_screenshot'][LANGUAGE_NONE]['0']['fid'] = $file->fid;
+  }
+}
+
+function resources_node_insert($node) {
+  drupal_set_message('Please enter some descriptive tags, check the title and description.', $type = 'error', $repeat = TRUE);
+  drupal_goto('node/'.$node->nid.'/edit');
+}
+
+function resources_field_uri_after_build($element, &$form_state) {
+  $element[LANGUAGE_NONE][0]['url']['#description'] = 'e.g. http://example.com';
+  return $element;
+}
+
+function resources_add_after_build($form, &$form_state) {
+
+  // Suppress required during insert
+  $form['field_resource_description'][LANGUAGE_NONE][0]['value']['#required'] = FALSE;
+  $form['field_tags'][LANGUAGE_NONE]['#required'] = FALSE;
+  $form['field_category'][LANGUAGE_NONE]['#required'] = FALSE;
+
+  return $form;
+}
+
+function _get_url_stuff($url) {
+  $nullmessage = '';
+  $html = drupal_http_request($url);
+
+  $stuff['return']['code'] = (isset($html->code)) ? $html->code : $nullmessage;
+  $stuff['return']['error'] = (isset($html->error)) ? $html->error : $nullmessage;
+  $stuff['return']['redirect_code'] = (isset($html->redirect_code)) ? $html->redirect_code : $nullmessage;
+  $stuff['return']['redirect_url'] = (isset($html->redirect_url)) ? $html->redirect_url : $nullmessage;
+
+  if(!isset($html->data) && isset($html->redirect_url)) {
+    $repaired_url = _repair_url_using_redirect($url, $html->redirect_url);
+    $stuff['return']['inferred_url'] = $repaired_url;
+    $html = drupal_http_request($repaired_url);
+  }
+
+  // Return early if the drupal error code is anything less than 0
+  if($html->code <= 0) return $stuff;
+
+  $doc = new DOMDocument();
+  @$doc -> loadHTML($html->data);
+  $nodes = $doc->getElementsByTagName('title');
+  $stuff['title'] = $nodes->item(0)->nodeValue;
+
+  // Trim blank space before and after the title
+  if(strlen($stuff['title']) > 0) $stuff['title'] = trim($stuff['title'], " \t\n\r\0\x0B");
+
+  $metas = $doc->getElementsByTagName('meta');
+  for($i=0; $i<$metas->length; $i++) {
+    $meta = $metas->item($i);
+    if ($meta->getAttribute('charset')) $stuff['meta']['charset'][$meta->getAttribute('charset')] = '';
+    if ($meta->getAttribute('sheme')) $stuff['meta']['sheme'][$meta->getAttribute('sheme')] = '';
+    if ($meta->getAttribute('name')) $stuff['meta']['name'][$meta->getAttribute('name')] = $meta->getAttribute('content');
+    if ($meta->getAttribute('http-equiv')) $stuff['meta']['http-equiv'][$meta->getAttribute('http-equiv')] = $meta->getAttribute('content');
+    if ($meta->getAttribute('property')) $stuff['meta']['property'][$meta->getAttribute('property')] = $meta->getAttribute('content');
+    // Need to grep for author <a href=”[profile_url]?rel=author”>Google</a>, and other things http://www.metatags.org/all_metatags
+  }
+
+  return $stuff;
+}
+
+function _build_form_state(&$form_state, $url_data, $reindex) {
+//  dsm($form_state, 'build_form_state $form_state');
+
+  $form_state['values']['field_resource_raw_title'][LANGUAGE_NONE][0]['value'] = (isset($url_data['title'])) ? $url_data['title'] : '';
+  $form_state['values']['field_resource_raw_description'][LANGUAGE_NONE][0]['value'] = (isset($url_data['meta']['name']['description'])) ? $url_data['meta']['name']['description'] : '';
+
+  $form_state['values']['field_resource_request_code'][LANGUAGE_NONE][0]['value'] = (isset($url_data['return']['code'])) ? $url_data['return']['code'] : '';
+  $form_state['values']['field_resource_request_error'][LANGUAGE_NONE][0]['value'] = (isset($url_data['return']['error'])) ? $url_data['return']['error'] : '';
+  $form_state['values']['field_resource_request_recode'][LANGUAGE_NONE][0]['value'] = (isset($url_data['return']['redirect_code'])) ? $url_data['return']['redirect_code'] : '';
+  $form_state['values']['field_resource_request_reurl'][LANGUAGE_NONE][0]['value'] = (isset($url_data['return']['redirect_url'])) ? $url_data['return']['redirect_url'] : '';
+  $form_state['values']['field_resource_request_inferred_'][LANGUAGE_NONE][0]['value'] = (isset($url_data['return']['inferred_url'])) ? $url_data['return']['inferred_url'] : '';
+
+
+  // Add a few more if not reindexing
+  if ($reindex == 0) {
+    $form_state['values']['field_resource_title'][LANGUAGE_NONE][0]['value'] = (isset($url_data['title'])) ? $url_data['title'] : '';
+    $form_state['values']['field_resource_description'][LANGUAGE_NONE][0]['value'] = (isset($url_data['meta']['name']['description'])) ? $url_data['meta']['name']['description'] : '';
+  };
+
+//  Iterate through meta tags
+  reset($url_data['meta']);
+  while ($type = key($url_data['meta'])) {
+    reset($url_data['meta'][$type]);
+    while ($value = key($url_data['meta'][$type])) {
+      $head_meta = array();
+      $head_meta['field_attribute_type'][LANGUAGE_NONE][0]['value'] = (isset($url_data['meta'][$type])) ? $type : '';
+      $head_meta['field_attribute'][LANGUAGE_NONE][0]['value'] = (isset($url_data['meta'][$type][$value])) ? $value : '';
+      $head_meta['field_content'][LANGUAGE_NONE][0]['value'] = (isset($url_data['meta'][$type][$value])) ? $url_data['meta'][$type][$value] : '';
+      $form_state['values']['field_resource_meta'][LANGUAGE_NONE][] = $head_meta;
+      next($url_data['meta'][$type]);
+    }
+    next($url_data['meta']);
+  }
+
+  // Set URL title
+//  $form_state['values']['title'] = (isset($url_data['title'])) ? $url_data['title'] : '';
+
+  // Explode the keywords
+  // TODO: Look up if the keywords already exist
+  unset($form_state['values']['field_resource_meta_keywords']);
+  if (isset($url_data['meta']['name']['keywords'])) {
+    $meta_keywords = explode(',', $url_data['meta']['name']['keywords']);
+    foreach($meta_keywords as $keyword) {
+      $form_state['values']['field_resource_meta_keywords'][LANGUAGE_NONE][] = array(
+        'tid' => 'autocreate',
+        'vid' => 4,
+        'name' => $keyword,
+        'vocabulary_machine_name' => 'meta_keywords',
+      );
+    }
+  }
+
+}
+
+/**
+ * Forms a url using an existing url and a relative path
+ * @param $url - http://example.com
+ * @param $redirect - node/view/14
+ * @return mixed
+ */
+function _repair_url_using_redirect($url, $redirect) {
+  $schemes = array(0 => 'http://', 1 => 'https://', 2 => 'ftp://');
+  $scheme = '';
+  foreach($schemes as $key => $val) {
+    if(strpos($url, $val) !== FALSE) {
+      $scheme = $val;
+      break;
+    }
+  }
+  $revised_url = str_replace($scheme, '', $url); // http://example.com -> example.com
+  $url_last_char = substr($revised_url, -1);
+  $redirect_first_char = substr($redirect, 0, 1);
+  $revised_url = ($url_last_char == '/') ? substr($revised_url, 0, -1) : $revised_url; // example.com/ -> example.com
+  $redirect = ($redirect_first_char == '/') ? $redirect : '/' . $redirect;
+  return $scheme . $revised_url . $redirect;
+}
+
+function _get_screenshot($url) {
+
+  // Encode url and create query string.
+  // Request Image from service
+  $screenshot = drupal_http_request('http://api.ent.iastate.edu/screenshot/generate.wsgi?' . drupal_http_build_query(array('uri' => urlencode($url))),$options = array('max_redirects' => 0));
+
+  // Get contents and save into Drupal
+  if (isset($screenshot->redirect_url)) {
+    $file = system_retrieve_file($screenshot->redirect_url, NULL, TRUE, FILE_EXISTS_REPLACE);
+    return $file;
+  } else {
+    return 'FAIL';
+  }
+}
