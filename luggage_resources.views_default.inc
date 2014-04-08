@@ -72,7 +72,7 @@ function resources_views_default_views() {
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['label'] = 'Empty view text';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = 'You have not yet entered any resources. Pleas enter a resource - <a href="/node/add/resource" >Add Resource</a>';
+  $handler->display->display_options['empty']['area']['content'] = 'You have not yet entered any luggage_resources. Pleas enter a resource - <a href="/node/add/resource" >Add Resource</a>';
   $handler->display->display_options['empty']['area']['format'] = 'wysiwyg';
   /* Relationship: Content: Author */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
@@ -124,18 +124,18 @@ function resources_views_default_views() {
 
   /* Display: My Resources */
   $handler = $view->new_display('page', 'My Resources', 'page');
-  $handler->display->display_options['path'] = 'my-resources';
+  $handler->display->display_options['path'] = 'my-luggage_resources';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'My Resources';
   $handler->display->display_options['menu']['name'] = 'main-menu';
   $export['my_resources'] = $view;
 
   $view = new view();
-  $view->name = 'resources';
+  $view->name = 'luggage_resources';
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'resources';
+  $view->human_name = 'luggage_resources';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -181,7 +181,7 @@ function resources_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'resources';
+  $handler->display->display_options['path'] = 'luggage_resources';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Resources';
   $handler->display->display_options['menu']['name'] = 'main-menu';
@@ -191,7 +191,7 @@ function resources_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['style_plugin'] = 'rss';
   $handler->display->display_options['row_plugin'] = 'node_rss';
-  $handler->display->display_options['path'] = 'resources.xml';
+  $handler->display->display_options['path'] = 'luggage_resources.xml';
   $handler->display->display_options['displays'] = array(
     'default' => 'default',
     'page' => 'page',
@@ -209,7 +209,7 @@ function resources_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['block_description'] = 'Recent Resources';
-  $export['resources'] = $view;
+  $export['luggage_resources'] = $view;
 
   return $export;
 }

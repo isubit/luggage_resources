@@ -1,10 +1,10 @@
 <?php
 /**
  * @file
- * Code for the luggage_resources feature.
+ * Code for the Resources feature.
  */
 
-include_once 'lugggage_resources.features.inc';
+include_once 'luggage_resources.features.inc';
 
 /**
  * Implements hook_update_projects_alter().
@@ -171,7 +171,6 @@ function resources_add_after_build($form, &$form_state) {
   // Suppress required during insert
   $form['field_resource_description'][LANGUAGE_NONE][0]['value']['#required'] = FALSE;
   $form['field_tags'][LANGUAGE_NONE]['#required'] = FALSE;
-  $form['field_category'][LANGUAGE_NONE]['#required'] = FALSE;
 
   return $form;
 }

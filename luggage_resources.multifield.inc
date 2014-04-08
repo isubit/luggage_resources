@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * lugggage_resource.multifield.inc
+ * luggage_resources.multifield.inc
  */
 
 /**
  * Implements hook_multifield_default_multifield().
  */
-function lugggage_resource_multifield_default_multifield() {
+function resources_multifield_default_multifield() {
   $export = array();
 
   $multifield = new stdClass();

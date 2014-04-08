@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * lugggage_resources.features.inc
+ * luggage_resources.features.inc
  */
 
 /**
  * Implements hook_ctools_plugin_api().
  */
-function lugggage_resources_ctools_plugin_api($module = NULL, $api = NULL) {
+function resources_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "field_group" && $api == "field_group") {
     return array("version" => "1");
   }
@@ -22,22 +22,22 @@ function lugggage_resources_ctools_plugin_api($module = NULL, $api = NULL) {
 /**
  * Implements hook_views_api().
  */
-function lugggage_resources_views_api($module = NULL, $api = NULL) {
+function resources_views_api($module = NULL, $api = NULL) {
   return array("api" => "3.0");
 }
 
 /**
  * Implements hook_node_info().
  */
-function lugggage_resources_node_info() {
+function resources_node_info() {
   $items = array(
     'resource' => array(
       'name' => t('Resource'),
       'base' => 'node_content',
-      'description' => t('A link to an online resource not hosted on this website'),
+      'description' => t('A URI of crop knowledge'),
       'has_title' => '1',
       'title_label' => t('Title'),
-      'help' => '',
+      'help' => t('Please search first, to make sure the resource is not already in the system.'),
     ),
   );
   return $items;
