@@ -259,12 +259,13 @@ function _build_form_state(&$form_state, $url_data, $reindex) {
   // Explode the keywords
   // TODO: Look up if the keywords already exist
   unset($form_state['values']['field_resource_meta_keywords']);
+  $vid = taxonomy_vocabulary_machine_name_load('meta_keywords');
   if (isset($url_data['meta']['name']['keywords'])) {
     $meta_keywords = explode(',', $url_data['meta']['name']['keywords']);
     foreach($meta_keywords as $keyword) {
       $form_state['values']['field_resource_meta_keywords'][LANGUAGE_NONE][] = array(
         'tid' => 'autocreate',
-        'vid' => 4,
+        'vid' => $vid->vid,
         'name' => $keyword,
         'vocabulary_machine_name' => 'meta_keywords',
       );
