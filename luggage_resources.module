@@ -160,8 +160,10 @@ function _index_url(&$form_state, $url) {
 }
 
 function luggage_resources_node_insert($node) {
-  drupal_set_message('Please enter some descriptive tags, check the title and description.', $type = 'error', $repeat = TRUE);
-  drupal_goto('node/'.$node->nid.'/edit');
+  if ($node->type == 'resource') {
+    drupal_set_message('Please enter some descriptive tags, check the title and description.', $type = 'error', $repeat = TRUE);
+    drupal_goto('node/'.$node->nid.'/edit');
+  }
 }
 
 function luggage_resources_field_uri_after_build($element, &$form_state) {
