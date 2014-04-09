@@ -115,7 +115,10 @@ function _disabled_form_fields(&$form) {
   );
 
   // Add a few more if insert and not edit form
-  if (arg(1) == 'add') $disabled[] = 'field_resource_title';
+  if (arg(1) == 'add') {
+    $disabled[] = 'field_resource_title';
+    $disabled[] = 'field_category';
+  }
 
   // Set $disabled array to #disabled
   foreach ($disabled as $disable) {
@@ -171,6 +174,7 @@ function luggage_resources_add_after_build($form, &$form_state) {
   // Suppress required during insert
   $form['field_resource_description'][LANGUAGE_NONE][0]['value']['#required'] = FALSE;
   $form['field_tags'][LANGUAGE_NONE]['#required'] = FALSE;
+  $form['field_category'][LANGUAGE_NONE]['#required'] = FALSE;
 
   return $form;
 }
