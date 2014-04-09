@@ -7,7 +7,7 @@
 /**
  * Implements hook_taxonomy_default_vocabularies().
  */
-function resources_taxonomy_default_vocabularies() {
+function luggage_resources_taxonomy_default_vocabularies() {
   return array(
     'meta_keywords' => array(
       'name' => 'Meta Keywords',

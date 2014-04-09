@@ -7,7 +7,7 @@
 /**
  * Implements hook_multifield_default_multifield().
  */
-function resources_multifield_default_multifield() {
+function luggage_resources_multifield_default_multifield() {
   $export = array();
 
   $multifield = new stdClass();

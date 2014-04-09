@@ -7,7 +7,7 @@
 /**
  * Implements hook_views_default_views().
  */
-function resources_views_default_views() {
+function luggage_resources_views_default_views() {
   $export = array();
 
   $view = new view();

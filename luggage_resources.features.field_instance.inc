@@ -7,7 +7,7 @@
 /**
  * Implements hook_field_default_field_instances().
  */
-function resources_field_default_field_instances() {
+function luggage_resources_field_default_field_instances() {
   $field_instances = array();
 
   // Exported field_instance: 'node-resource-field_resource_description'

@@ -7,7 +7,7 @@
 /**
  * Implements hook_field_default_field_bases().
  */
-function resources_field_default_field_bases() {
+function luggage_resources_field_default_field_bases() {
   $field_bases = array();
 
   // Exported field_base: 'field_resource_description'

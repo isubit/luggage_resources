@@ -7,7 +7,7 @@
 /**
  * Implements hook_ctools_plugin_api().
  */
-function resources_ctools_plugin_api($module = NULL, $api = NULL) {
+function luggage_resources_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "field_group" && $api == "field_group") {
     return array("version" => "1");
   }
@@ -22,14 +22,14 @@ function resources_ctools_plugin_api($module = NULL, $api = NULL) {
 /**
  * Implements hook_views_api().
  */
-function resources_views_api($module = NULL, $api = NULL) {
+function luggage_resources_views_api($module = NULL, $api = NULL) {
   return array("api" => "3.0");
 }
 
 /**
  * Implements hook_node_info().
  */
-function resources_node_info() {
+function luggage_resources_node_info() {
   $items = array(
     'resource' => array(
       'name' => t('Resource'),

@@ -7,7 +7,7 @@
 /**
  * Implements hook_strongarm().
  */
-function resources_strongarm() {
+function luggage_resources_strongarm() {
   $export = array();
 
   $strongarm = new stdClass();

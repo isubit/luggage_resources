@@ -7,7 +7,7 @@
 /**
  * Implements hook_field_group_info().
  */
-function resources_field_group_info() {
+function luggage_resources_field_group_info() {
   $export = array();
 
   $field_group = new stdClass();
