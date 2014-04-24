@@ -23,8 +23,8 @@ function luggage_resources_field_group_info() {
     'label' => 'HTTP Request',
     'weight' => '5',
     'children' => array(
-      0 => 'field_resource_request_code',
-      1 => 'field_resource_request_error',
+      0 => 'field_resource_request_error',
+      1 => 'field_resource_request_code',
       2 => 'field_resource_request_recode',
       3 => 'field_resource_request_reurl',
       4 => 'field_resource_request_inferred_',
@@ -86,8 +86,8 @@ function luggage_resources_field_group_info() {
     'label' => 'HTTP Request',
     'weight' => '11',
     'children' => array(
-      0 => 'field_resource_request_code',
-      1 => 'field_resource_request_error',
+      0 => 'field_resource_request_error',
+      1 => 'field_resource_request_code',
       2 => 'field_resource_request_recode',
       3 => 'field_resource_request_reurl',
       4 => 'field_resource_request_inferred_',
@@ -118,8 +118,8 @@ function luggage_resources_field_group_info() {
     'label' => 'HTTP Request',
     'weight' => '11',
     'children' => array(
-      0 => 'field_resource_request_code',
-      1 => 'field_resource_request_error',
+      0 => 'field_resource_request_error',
+      1 => 'field_resource_request_code',
       2 => 'field_resource_request_recode',
       3 => 'field_resource_request_reurl',
       4 => 'field_resource_request_inferred_',
@@ -257,12 +257,12 @@ function luggage_resources_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Retrieved Raw Metadata',
-    'weight' => '4',
+    'weight' => '5',
     'children' => array(
-      0 => 'field_resource_raw_description',
-      1 => 'field_resource_screenshot',
-      2 => 'field_resource_raw_title',
-      3 => 'field_resource_meta_keywords',
+      0 => 'field_resource_raw_title',
+      1 => 'field_resource_meta_keywords',
+      2 => 'field_resource_raw_description',
+      3 => 'field_resource_screenshot',
       4 => 'group_http_request',
       5 => 'group_meta_tags',
     ),
@@ -322,12 +322,12 @@ function luggage_resources_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Retrieved Raw Metadata',
-    'weight' => '4',
+    'weight' => '5',
     'children' => array(
-      0 => 'field_resource_raw_description',
-      1 => 'field_resource_screenshot',
-      2 => 'field_resource_raw_title',
-      3 => 'field_resource_meta_keywords',
+      0 => 'field_resource_raw_title',
+      1 => 'field_resource_meta_keywords',
+      2 => 'field_resource_raw_description',
+      3 => 'field_resource_screenshot',
       4 => 'group_http_request',
       5 => 'group_meta_tags',
     ),
@@ -354,12 +354,12 @@ function luggage_resources_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Retrieved Raw Metadata',
-    'weight' => '4',
+    'weight' => '5',
     'children' => array(
-      0 => 'field_resource_raw_description',
-      1 => 'field_resource_screenshot',
-      2 => 'field_resource_raw_title',
-      3 => 'field_resource_meta_keywords',
+      0 => 'field_resource_raw_title',
+      1 => 'field_resource_meta_keywords',
+      2 => 'field_resource_raw_description',
+      3 => 'field_resource_screenshot',
       4 => 'group_http_request',
       5 => 'group_meta_tags',
     ),

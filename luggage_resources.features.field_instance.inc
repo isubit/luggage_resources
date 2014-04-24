@@ -10,6 +10,160 @@
 function luggage_resources_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'multifield-head_meta-field_attribute'
+  $field_instances['multifield-head_meta-field_attribute'] = array(
+    'bundle' => 'head_meta',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'multifield',
+    'field_name' => 'field_attribute',
+    'label' => 'Attribute',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'multifield-head_meta-field_attribute_type'
+  $field_instances['multifield-head_meta-field_attribute_type'] = array(
+    'bundle' => 'head_meta',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'multifield',
+    'field_name' => 'field_attribute_type',
+    'label' => 'Attribute type',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'multifield-head_meta-field_content'
+  $field_instances['multifield-head_meta-field_content'] = array(
+    'bundle' => 'head_meta',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'multifield',
+    'field_name' => 'field_content',
+    'label' => 'content',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 1,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'node-resource-field_category'
+  $field_instances['node-resource-field_category'] = array(
+    'bundle' => 'resource',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'inline',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 3,
+      ),
+      'full' => array(
+        'label' => 'inline',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 3,
+      ),
+      'search_index' => array(
+        'label' => 'inline',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 3,
+      ),
+      'search_result' => array(
+        'label' => 'inline',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 4,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_category',
+    'label' => 'Category',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 5,
+    ),
+  );
+
   // Exported field_instance: 'node-resource-field_resource_description'
   $field_instances['node-resource-field_resource_description'] = array(
     'bundle' => 'resource',
@@ -21,14 +175,14 @@ Example of a description to go with Crop Scouting Competition:
 One-day competition where high school students from across Iowa demonstrate their scouting abilities in corn and soybean. Monetary prizes go to the winners.',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 2,
       ),
       'full' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -48,7 +202,7 @@ One-day competition where high school students from across Iowa demonstrate thei
           'trim_length' => 600,
         ),
         'type' => 'text_trimmed',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -114,7 +268,7 @@ One-day competition where high school students from across Iowa demonstrate thei
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 6,
       ),
     ),
     'entity_type' => 'node',
@@ -165,7 +319,7 @@ One-day competition where high school students from across Iowa demonstrate thei
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 7,
       ),
     ),
     'entity_type' => 'node',
@@ -219,7 +373,7 @@ One-day competition where high school students from across Iowa demonstrate thei
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 7,
+        'weight' => 10,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -279,7 +433,7 @@ One-day competition where high school students from across Iowa demonstrate thei
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 8,
       ),
     ),
     'entity_type' => 'node',
@@ -316,25 +470,25 @@ One-day competition where high school students from across Iowa demonstrate thei
         'label' => 'inline',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 6,
       ),
       'full' => array(
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 6,
       ),
       'search_index' => array(
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 6,
       ),
       'search_result' => array(
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 8,
+        'weight' => 11,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -393,7 +547,7 @@ One-day competition where high school students from across Iowa demonstrate thei
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 10,
+        'weight' => 13,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -453,7 +607,7 @@ One-day competition where high school students from across Iowa demonstrate thei
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 9,
+        'weight' => 12,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -513,7 +667,7 @@ One-day competition where high school students from across Iowa demonstrate thei
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 9,
       ),
     ),
     'entity_type' => 'node',
@@ -567,7 +721,7 @@ One-day competition where high school students from across Iowa demonstrate thei
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 11,
+        'weight' => 14,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -627,7 +781,7 @@ One-day competition where high school students from across Iowa demonstrate thei
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 12,
+        'weight' => 15,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -699,7 +853,7 @@ One-day competition where high school students from across Iowa demonstrate thei
           'image_style' => 'top_crop_200_150',
         ),
         'type' => 'image',
-        'weight' => 1,
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -779,9 +933,10 @@ One-day competition where high school students from across Iowa demonstrate thei
       ),
       'search_result' => array(
         'label' => 'hidden',
+        'module' => 'text',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 4,
+        'type' => 'text_default',
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -821,33 +976,28 @@ One-day competition where high school students from across Iowa demonstrate thei
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
-        'weight' => 3,
+        'weight' => 4,
       ),
       'full' => array(
         'label' => 'inline',
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
-        'weight' => 3,
+        'weight' => 4,
       ),
       'search_index' => array(
         'label' => 'inline',
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
-        'weight' => 3,
+        'weight' => 4,
       ),
       'search_result' => array(
         'label' => 'inline',
         'module' => 'taxonomy',
-        'settings' => array(
-          'path' => array(
-            'search_path' => 'search/luggage_resources',
-          ),
-          'target' => '_self',
-        ),
+        'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
-        'weight' => 3,
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -957,6 +1107,9 @@ One-day competition where high school students from across Iowa demonstrate thei
 Example of a description to go with Crop Scouting Competition:
 
 One-day competition where high school students from across Iowa demonstrate their scouting abilities in corn and soybean. Monetary prizes go to the winners.');
+  t('Attribute');
+  t('Attribute type');
+  t('Category');
   t('Raw Description');
   t('Raw Title');
   t('Re-Index');
@@ -973,6 +1126,7 @@ One-day competition where high school students from across Iowa demonstrate thei
   t('This field will be auto populated.');
   t('Title');
   t('Uniform Resource Locator (URL)');
+  t('content');
   t('resource meta keywords');
 
   return $field_instances;
