@@ -12,6 +12,7 @@ function luggage_resources_multifield_default_multifield() {
 
   $multifield = new stdClass();
   $multifield->disabled = FALSE; /* Edit this to true to make a default multifield disabled initially */
+  $multifield->api_version = 1;
   $multifield->machine_name = 'head_meta';
   $multifield->label = 'head meta';
   $multifield->description = '';

@@ -165,11 +165,7 @@ function luggage_resources_field_default_field_bases() {
     ),
     'locked' => 0,
     'module' => 'multifield',
-    'settings' => array(
-      'entity_translation_sync' => array(
-        0 => 'id',
-      ),
-    ),
+    'settings' => array(),
     'translatable' => 0,
     'type' => 'head_meta',
   );
