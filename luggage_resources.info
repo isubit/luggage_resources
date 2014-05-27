@@ -1,7 +1,7 @@
 name = luggage_resources
 core = 7.x
 package = Luggage
-version = 7.x-2.2
+version = 7.x-2.3
 project = luggage_resources
 dependencies[] = ctools
 dependencies[] = features
