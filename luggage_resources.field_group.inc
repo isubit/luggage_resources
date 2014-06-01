@@ -322,14 +322,13 @@ function luggage_resources_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Retrieved Raw Metadata',
-    'weight' => '5',
+    'weight' => '6',
     'children' => array(
       0 => 'field_resource_raw_title',
       1 => 'field_resource_meta_keywords',
       2 => 'field_resource_raw_description',
-      3 => 'field_resource_screenshot',
-      4 => 'group_http_request',
-      5 => 'group_meta_tags',
+      3 => 'group_http_request',
+      4 => 'group_meta_tags',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

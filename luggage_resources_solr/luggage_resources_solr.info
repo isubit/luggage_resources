@@ -1,0 +1,13 @@
+name = luggage_resources_solr
+description = integrates meta keywords with solr as facet
+core = 7.x
+package = Luggage
+version = 7.x-2.0
+project = luggage_resources_solr
+dependencies[] = ctools
+dependencies[] = facetapi
+dependencies[] = luggage_resources
+dependencies[] = luggage_solr
+features[ctools][] = facetapi:facetapi_defaults:1
+features[facetapi][] = apachesolr@solr:block:im_field_resource_meta_keywords
+features[features_api][] = api:2

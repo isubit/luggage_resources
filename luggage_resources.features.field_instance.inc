@@ -131,7 +131,7 @@ function luggage_resources_field_default_field_instances() {
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
-        'weight' => 3,
+        'weight' => 4,
       ),
       'search_index' => array(
         'label' => 'inline',
@@ -186,7 +186,7 @@ One-day competition where high school students from across Iowa demonstrate thei
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'search_index' => array(
         'label' => 'above',
@@ -476,7 +476,7 @@ One-day competition where high school students from across Iowa demonstrate thei
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 6,
+        'weight' => 7,
       ),
       'search_index' => array(
         'label' => 'hidden',
@@ -819,8 +819,8 @@ One-day competition where high school students from across Iowa demonstrate thei
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
-          'image_link' => '',
-          'image_style' => '',
+          'image_link' => 'file',
+          'image_style' => 'sceenshot_medium_200',
         ),
         'type' => 'image',
         'weight' => 10,
@@ -830,17 +830,17 @@ One-day competition where high school students from across Iowa demonstrate thei
         'module' => 'image',
         'settings' => array(
           'image_link' => 'file',
-          'image_style' => 'top_crop_200_150',
+          'image_style' => 'sceenshot_medium_200',
         ),
         'type' => 'image',
-        'weight' => 16,
+        'weight' => 2,
       ),
       'search_index' => array(
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
-          'image_link' => '',
-          'image_style' => '',
+          'image_link' => 'file',
+          'image_style' => 'sceenshot_medium_200',
         ),
         'type' => 'image',
         'weight' => 16,
@@ -849,8 +849,8 @@ One-day competition where high school students from across Iowa demonstrate thei
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
-          'image_link' => 'file',
-          'image_style' => 'top_crop_200_150',
+          'image_link' => 'content',
+          'image_style' => 'sceenshot_medium_200',
         ),
         'type' => 'image',
         'weight' => 2,
@@ -983,7 +983,7 @@ One-day competition where high school students from across Iowa demonstrate thei
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'search_index' => array(
         'label' => 'inline',
