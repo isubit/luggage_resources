@@ -211,7 +211,7 @@ function _get_url_stuff($url) {
   for($i=0; $i<$metas->length; $i++) {
     $meta = $metas->item($i);
     if ($meta->getAttribute('charset')) $stuff['meta']['charset'][$meta->getAttribute('charset')] = '';
-    if ($meta->getAttribute('sheme')) $stuff['meta']['sheme'][$meta->getAttribute('sheme')] = '';
+    if ($meta->getAttribute('scheme')) $stuff['meta']['scheme'][$meta->getAttribute('scheme')] = '';
     if ($meta->getAttribute('name')) $stuff['meta']['name'][$meta->getAttribute('name')] = $meta->getAttribute('content');
     if ($meta->getAttribute('http-equiv')) $stuff['meta']['http-equiv'][$meta->getAttribute('http-equiv')] = $meta->getAttribute('content');
     if ($meta->getAttribute('property')) $stuff['meta']['property'][$meta->getAttribute('property')] = $meta->getAttribute('content');
