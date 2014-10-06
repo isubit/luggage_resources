@@ -1,7 +1,7 @@
 name = luggage_resources
 core = 7.x
 package = Luggage
-version = 7.x-2.6
+version = 7.x-2.61
 project = luggage_resources
 dependencies[] = ctools
 dependencies[] = features
@@ -12,6 +12,7 @@ dependencies[] = list
 dependencies[] = luggage_roles
 dependencies[] = menu
 dependencies[] = multifield
+dependencies[] = node
 dependencies[] = options
 dependencies[] = strongarm
 dependencies[] = taxonomy
