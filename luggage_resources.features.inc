@@ -132,5 +132,6 @@ function luggage_resources_node_info() {
       'help' => t('Please search first, to make sure the resource is not already in the system.'),
     ),
   );
+  drupal_alter('node_info', $items);
   return $items;
 }
