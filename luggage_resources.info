@@ -94,4 +94,4 @@ features[variable][] = node_options_resource
 features[variable][] = node_preview_resource
 features[variable][] = node_submitted_resource
 features[views_view][] = my_resources
-features_exclude[taxonomy][keywords] = keywords
+github = https://raw.github.com/isubit/luggage_resources/master/luggage_resources.info
