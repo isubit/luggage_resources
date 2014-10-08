@@ -17,7 +17,7 @@ function luggage_resources_solr_facetapi_default_facet_settings() {
   $facet->searcher = 'apachesolr@solr';
   $facet->realm = 'block';
   $facet->facet = 'im_field_resource_meta_keywords';
-  $facet->enabled = FALSE;
+  $facet->enabled = TRUE;
   $facet->settings = array(
     'weight' => 0,
     'widget' => 'facetapi_links',
@@ -41,6 +41,8 @@ function luggage_resources_solr_facetapi_default_facet_settings() {
     'soft_limit' => 20,
     'nofollow' => 1,
     'show_expanded' => 0,
+    'facet_more_text' => 'Show more',
+    'facet_fewer_text' => 'Show fewer',
   );
   $export['apachesolr@solr:block:im_field_resource_meta_keywords'] = $facet;
 
