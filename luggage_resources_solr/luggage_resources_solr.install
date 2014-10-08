@@ -3,4 +3,16 @@
  * User: hof
  * Date: 10/8/14
  * Time: 11:22 AM
- */ 
+ */
+
+
+/**
+ * Implements hook_enable()
+ */
+function luggage_resources_solr_enable() {
+  db_update('system')
+    ->fields(array('weight' => 100000))
+    ->condition('type', 'module')
+    ->condition('name', 'luggage_resources_solr')
+    ->execute();
+}
