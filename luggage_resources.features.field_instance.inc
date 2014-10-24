@@ -1072,6 +1072,7 @@ One-day competition where high school students from across Iowa demonstrate thei
     'label' => 'Uniform Resource Locator (URL)',
     'required' => 1,
     'settings' => array(
+      'absolute_url' => 1,
       'attributes' => array(
         'class' => '',
         'configurable_title' => 0,
@@ -1085,6 +1086,7 @@ One-day competition where high school students from across Iowa demonstrate thei
       'enable_tokens' => 1,
       'rel_remove' => 'default',
       'title' => 'none',
+      'title_label_use_field_label' => FALSE,
       'title_maxlength' => 255,
       'title_value' => '',
       'url' => 0,
