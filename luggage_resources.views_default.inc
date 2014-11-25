@@ -124,7 +124,7 @@ function luggage_resources_views_default_views() {
 
   /* Display: My Resources */
   $handler = $view->new_display('page', 'My Resources', 'page');
-  $handler->display->display_options['path'] = 'my-luggage_resources';
+  $handler->display->display_options['path'] = 'my/resources';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'My Resources';
   $handler->display->display_options['menu']['name'] = 'main-menu';
