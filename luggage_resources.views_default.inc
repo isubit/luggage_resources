@@ -33,7 +33,7 @@ function luggage_resources_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'title' => 'title',
-    'field_resouce_description' => 'field_resouce_description',
+    'field_resource_description' => 'field_resource_description',
     'field_uri' => 'field_uri',
     'field_tags' => 'field_tags',
   );
@@ -46,7 +46,7 @@ function luggage_resources_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
-    'field_resouce_description' => array(
+    'field_resource_description' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => 'views-align-left',
