@@ -130,7 +130,7 @@ function luggage_resources_views_default_views() {
   $handler->display->display_options['path'] = 'my/resources';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'My Resources';
-  $handler->display->display_options['menu']['name'] = 'main-menu';
+  $handler->display->display_options['menu']['name'] = 'management';
   $export['my_resources'] = $view;
 
   return $export;
