@@ -24,7 +24,10 @@ function luggage_resources_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'My Resources';
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    2 => '2',
+  );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
@@ -33,7 +36,7 @@ function luggage_resources_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'title' => 'title',
-    'field_resouce_description' => 'field_resouce_description',
+    'field_resource_description' => 'field_resource_description',
     'field_uri' => 'field_uri',
     'field_tags' => 'field_tags',
   );
@@ -46,7 +49,7 @@ function luggage_resources_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
-    'field_resouce_description' => array(
+    'field_resource_description' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => 'views-align-left',
@@ -72,7 +75,7 @@ function luggage_resources_views_default_views() {
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['label'] = 'Empty view text';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = 'You have not yet entered any luggage_resources. Pleas enter a resource - <a href="/node/add/resource" >Add Resource</a>';
+  $handler->display->display_options['empty']['area']['content'] = 'You have not yet entered any resources. Please enter a resource - <a href="/node/add/resource">Add Resource</a>';
   $handler->display->display_options['empty']['area']['format'] = 'wysiwyg';
   /* Relationship: Content: Author */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
@@ -124,10 +127,10 @@ function luggage_resources_views_default_views() {
 
   /* Display: My Resources */
   $handler = $view->new_display('page', 'My Resources', 'page');
-  $handler->display->display_options['path'] = 'my-luggage_resources';
+  $handler->display->display_options['path'] = 'my/resources';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'My Resources';
-  $handler->display->display_options['menu']['name'] = 'main-menu';
+  $handler->display->display_options['menu']['name'] = 'management';
   $export['my_resources'] = $view;
 
   return $export;
