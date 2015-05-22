@@ -1,5 +1,4 @@
 (function ($) {
-    console.log(Drupal);
 //    Drupal.behaviors.linkyfill = {
 //        attach: function(context, settings) {
 //            console.log(settings);
