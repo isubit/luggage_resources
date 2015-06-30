@@ -38,15 +38,6 @@ function luggage_resources_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'delete terms in meta_keywords'.
-  $permissions['delete terms in meta_keywords'] = array(
-    'name' => 'delete terms in meta_keywords',
-    'roles' => array(
-      'taxonomy editor' => 'taxonomy editor',
-    ),
-    'module' => 'taxonomy',
-  );
-
   // Exported permission: 'edit any resource content'.
   $permissions['edit any resource content'] = array(
     'name' => 'edit any resource content',
@@ -63,15 +54,6 @@ function luggage_resources_user_default_permissions() {
       'authenticated user' => 'authenticated user',
     ),
     'module' => 'node',
-  );
-
-  // Exported permission: 'edit terms in meta_keywords'.
-  $permissions['edit terms in meta_keywords'] = array(
-    'name' => 'edit terms in meta_keywords',
-    'roles' => array(
-      'taxonomy editor' => 'taxonomy editor',
-    ),
-    'module' => 'taxonomy',
   );
 
   return $permissions;

@@ -15,7 +15,7 @@ function luggage_resources_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'My Resources';
+  $view->human_name = 'Resources';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -24,10 +24,7 @@ function luggage_resources_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'My Resources';
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'role';
-  $handler->display->display_options['access']['role'] = array(
-    2 => '2',
-  );
+  $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
@@ -88,6 +85,16 @@ function luggage_resources_views_default_views() {
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Content: Screenshot */
+  $handler->display->display_options['fields']['field_resource_screenshot']['id'] = 'field_resource_screenshot';
+  $handler->display->display_options['fields']['field_resource_screenshot']['table'] = 'field_data_field_resource_screenshot';
+  $handler->display->display_options['fields']['field_resource_screenshot']['field'] = 'field_resource_screenshot';
+  $handler->display->display_options['fields']['field_resource_screenshot']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_resource_screenshot']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_resource_screenshot']['settings'] = array(
+    'image_style' => 'screenshot_thumbnail',
+    'image_link' => 'content',
+  );
   /* Field: Content: Uniform Resource Locator (URL) */
   $handler->display->display_options['fields']['field_uri']['id'] = 'field_uri';
   $handler->display->display_options['fields']['field_uri']['table'] = 'field_data_field_uri';
@@ -118,16 +125,10 @@ function luggage_resources_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'resource' => 'resource',
   );
-  /* Filter criterion: User: Current */
-  $handler->display->display_options['filters']['uid_current']['id'] = 'uid_current';
-  $handler->display->display_options['filters']['uid_current']['table'] = 'users';
-  $handler->display->display_options['filters']['uid_current']['field'] = 'uid_current';
-  $handler->display->display_options['filters']['uid_current']['relationship'] = 'uid';
-  $handler->display->display_options['filters']['uid_current']['value'] = '1';
 
-  /* Display: My Resources */
-  $handler = $view->new_display('page', 'My Resources', 'page');
-  $handler->display->display_options['path'] = 'my/resources';
+  /* Display: Resources */
+  $handler = $view->new_display('page', 'Resources', 'page');
+  $handler->display->display_options['path'] = 'resources';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'My Resources';
   $handler->display->display_options['menu']['name'] = 'management';
