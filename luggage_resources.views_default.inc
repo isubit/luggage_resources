@@ -22,7 +22,7 @@ function luggage_resources_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'My Resources';
+  $handler->display->display_options['title'] = 'Resources';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -130,8 +130,11 @@ function luggage_resources_views_default_views() {
   $handler = $view->new_display('page', 'Resources', 'page');
   $handler->display->display_options['path'] = 'resources';
   $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'My Resources';
-  $handler->display->display_options['menu']['name'] = 'management';
+  $handler->display->display_options['menu']['title'] = 'Resources';
+  $handler->display->display_options['menu']['weight'] = '-5';
+  $handler->display->display_options['menu']['name'] = 'main-menu';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
   $export['my_resources'] = $view;
 
   return $export;
