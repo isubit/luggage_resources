@@ -90,7 +90,7 @@ function luggage_resources_form_resource_node_form_alter(&$form, &$form_state, $
   }
 
   // disable form fields
-  _disabled_form_fields($form);
+  _luggage_resources_disabled_form_fields($form);
 
   // field_uri after__build and validate works on both upsert
   $form['field_uri']['#after_build'][] = 'luggage_resources_field_uri_after_build';
@@ -98,7 +98,7 @@ function luggage_resources_form_resource_node_form_alter(&$form, &$form_state, $
 }
 
 // form fields disabled on the insert and update form
-function _disabled_form_fields(&$form) {
+function _luggage_resources_disabled_form_fields(&$form) {
 
   // Array of field machine-names to disable
   $disabled = array(
@@ -136,21 +136,21 @@ function luggage_resources_form_resource_node_validate($form, &$form_state) {
   } else {
 
   // Index the url if it is a new entry or set to be re-indexed
-  if (arg(1) == 'add' || $form_state['values']['field_resource_re_index'][LANGUAGE_NONE][0]['value'] == '1') _index_url($form_state, $url);
+  if (arg(1) == 'add' || $form_state['values']['field_resource_re_index'][LANGUAGE_NONE][0]['value'] == '1') _luggage_resources_index_url($form_state, $url);
 
   // set re-index back to 0
   $form_state['values']['field_resource_re_index'][LANGUAGE_NONE][0]['value'] = "0";
   }
 }
 
-function _index_url(&$form_state, $url) {
+function _luggage_resources_index_url(&$form_state, $url) {
 
   // retrieve url and parse out the meta-data
-  $url_data = _get_url_data($url);
-  _build_form_state($form_state, $url_data, $form_state['values']['field_resource_re_index'][LANGUAGE_NONE][0]['value']);
+  $url_data = _luggage_resources_get_url_data($url);
+  _luggage_resources_build_form_state($form_state, $url_data, $form_state['values']['field_resource_re_index'][LANGUAGE_NONE][0]['value']);
 
   // Get Screenshot into Drupal and add it to the form_state
-  $file = _get_screenshot($url);
+  $file = _luggage_resources_get_screenshot($url);
   if ($file == 'FAIL') {
     drupal_set_message('Unable to download screenshot.', $type = 'error', $repeat = TRUE);
   } else {
@@ -180,7 +180,7 @@ function luggage_resources_add_after_build($form, &$form_state) {
   return $form;
 }
 
-function _get_url_data($url) {
+function _luggage_resources_get_url_data($url) {
   $nullmessage = '';
   $html = drupal_http_request($url);
 
@@ -190,7 +190,7 @@ function _get_url_data($url) {
   $data['return']['redirect_url'] = (isset($html->redirect_url)) ? $html->redirect_url : $nullmessage;
 
   if(!isset($html->data) && isset($html->redirect_url)) {
-    $repaired_url = _repair_url_using_redirect($url, $html->redirect_url);
+    $repaired_url = _luggage_resources_repair_url_using_redirect($url, $html->redirect_url);
     $data['return']['inferred_url'] = $repaired_url;
     $html = drupal_http_request($repaired_url);
   }
@@ -220,7 +220,7 @@ function _get_url_data($url) {
   return $data;
 }
 
-function _build_form_state(&$form_state, $url_data, $reindex) {
+function _luggage_resources_build_form_state(&$form_state, $url_data, $reindex) {
 //  dsm($form_state, 'build_form_state $form_state');
 
   $form_state['values']['field_resource_raw_title'][LANGUAGE_NONE][0]['value'] = (isset($url_data['title'])) ? $url_data['title'] : '';
@@ -281,7 +281,7 @@ function _build_form_state(&$form_state, $url_data, $reindex) {
  * @param $redirect - node/view/14
  * @return mixed
  */
-function _repair_url_using_redirect($url, $redirect) {
+function _luggage_resources_repair_url_using_redirect($url, $redirect) {
   $schemes = array(0 => 'http://', 1 => 'https://', 2 => 'ftp://');
   $scheme = '';
   foreach($schemes as $key => $val) {
@@ -298,7 +298,7 @@ function _repair_url_using_redirect($url, $redirect) {
   return $scheme . $revised_url . $redirect;
 }
 
-function _get_screenshot($url) {
+function _luggage_resources_get_screenshot($url) {
 
   // Encode url and create query string.
   // Request Image from service
