@@ -23,13 +23,13 @@ function luggage_resources_field_group_info() {
     'label' => 'HTTP Request',
     'weight' => '5',
     'children' => array(
-      0 => 'field_resource_request_error',
-      1 => 'field_resource_request_code',
-      2 => 'field_resource_request_recode',
-      3 => 'field_resource_request_reurl',
-      4 => 'field_resource_request_inferred_',
+      0 => 'field_resource_request_code',
+      1 => 'field_resource_request_error',
+      2 => 'field_resource_request_inferred_',
+      3 => 'field_resource_request_recode',
+      4 => 'field_resource_request_reurl',
     ),
-    'format_type' => 'fieldset',
+    'format_type' => 'hidden',
     'format_settings' => array(
       'label' => 'HTTP Request',
       'instance_settings' => array(
@@ -86,13 +86,13 @@ function luggage_resources_field_group_info() {
     'label' => 'HTTP Request',
     'weight' => '11',
     'children' => array(
-      0 => 'field_resource_request_error',
-      1 => 'field_resource_request_code',
-      2 => 'field_resource_request_recode',
-      3 => 'field_resource_request_reurl',
-      4 => 'field_resource_request_inferred_',
+      0 => 'field_resource_request_code',
+      1 => 'field_resource_request_error',
+      2 => 'field_resource_request_inferred_',
+      3 => 'field_resource_request_recode',
+      4 => 'field_resource_request_reurl',
     ),
-    'format_type' => 'fieldset',
+    'format_type' => 'hidden',
     'format_settings' => array(
       'label' => 'HTTP Request',
       'instance_settings' => array(
@@ -149,10 +149,8 @@ function luggage_resources_field_group_info() {
   $field_group->data = array(
     'label' => 'Meta Tags',
     'weight' => '6',
-    'children' => array(
-      0 => 'field_resource_meta',
-    ),
-    'format_type' => 'fieldset',
+    'children' => array(),
+    'format_type' => 'hidden',
     'format_settings' => array(
       'formatter' => 'collapsible',
       'instance_settings' => array(
@@ -204,10 +202,8 @@ function luggage_resources_field_group_info() {
   $field_group->data = array(
     'label' => 'Meta Tags',
     'weight' => '12',
-    'children' => array(
-      0 => 'field_resource_meta',
-    ),
-    'format_type' => 'fieldset',
+    'children' => array(),
+    'format_type' => 'hidden',
     'format_settings' => array(
       'label' => 'Meta Tags',
       'instance_settings' => array(
@@ -257,16 +253,16 @@ function luggage_resources_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Retrieved Raw Metadata',
-    'weight' => '5',
+    'weight' => '4',
     'children' => array(
-      0 => 'field_resource_raw_title',
-      1 => 'field_resource_meta_keywords',
-      2 => 'field_resource_raw_description',
+      0 => 'field_resource_meta_keywords',
+      1 => 'field_resource_raw_description',
+      2 => 'field_resource_raw_title',
       3 => 'field_resource_screenshot',
       4 => 'group_http_request',
       5 => 'group_meta_tags',
     ),
-    'format_type' => 'fieldset',
+    'format_type' => 'hidden',
     'format_settings' => array(
       'label' => 'Retrieved Raw Metadata',
       'instance_settings' => array(
@@ -322,15 +318,15 @@ function luggage_resources_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Retrieved Raw Metadata',
-    'weight' => '6',
+    'weight' => '5',
     'children' => array(
-      0 => 'field_resource_raw_title',
-      1 => 'field_resource_meta_keywords',
-      2 => 'field_resource_raw_description',
+      0 => 'field_resource_meta_keywords',
+      1 => 'field_resource_raw_description',
+      2 => 'field_resource_raw_title',
       3 => 'group_http_request',
       4 => 'group_meta_tags',
     ),
-    'format_type' => 'fieldset',
+    'format_type' => 'hidden',
     'format_settings' => array(
       'label' => 'Retrieved Raw Metadata',
       'instance_settings' => array(
