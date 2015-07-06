@@ -14,14 +14,14 @@ function luggage_resources_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'auto_entitylabel_node_resource';
-  $strongarm->value = '1';
+  $strongarm->value = '2';
   $export['auto_entitylabel_node_resource'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'auto_entitylabel_pattern_node_resource';
-  $strongarm->value = '[node:field-resource-title]';
+  $strongarm->value = '[node:field-resource-raw-title]';
   $export['auto_entitylabel_pattern_node_resource'] = $strongarm;
 
   $strongarm = new stdClass();

@@ -826,65 +826,6 @@ One-day competition where high school students from across Iowa demonstrate thei
     ),
   );
 
-  // Exported field_instance: 'node-resource-field_resource_title'
-  $field_instances['node-resource-field_resource_title'] = array(
-    'bundle' => 'resource',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => 'The title of this resource',
-    'display' => array(
-      'default' => array(
-        'label' => 'inline',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 5,
-      ),
-      'full' => array(
-        'label' => 'inline',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 6,
-      ),
-      'search_index' => array(
-        'label' => 'inline',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 1,
-      ),
-      'search_result' => array(
-        'label' => 'hidden',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 1,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_resource_title',
-    'label' => 'Title',
-    'required' => 1,
-    'settings' => array(
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 2,
-    ),
-  );
-
   // Exported field_instance: 'node-resource-field_tags'
   $field_instances['node-resource-field_tags'] = array(
     'bundle' => 'resource',
@@ -1044,9 +985,7 @@ One-day competition where high school students from across Iowa demonstrate thei
   t('Resource Description');
   t('Screenshot');
   t('Tags');
-  t('The title of this resource');
   t('This field will be auto populated.');
-  t('Title');
   t('Uniform Resource Locator (URL)');
   t('content');
   t('resource meta keywords');
