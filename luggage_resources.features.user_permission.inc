@@ -16,7 +16,6 @@ function luggage_resources_user_default_permissions() {
     'roles' => array(
       'authenticated user' => 'authenticated user',
       'content editor' => 'content editor',
-      'content publisher' => 'content publisher',
     ),
     'module' => 'node',
   );
@@ -25,7 +24,7 @@ function luggage_resources_user_default_permissions() {
   $permissions['delete any resource content'] = array(
     'name' => 'delete any resource content',
     'roles' => array(
-      'content publisher' => 'content publisher',
+      'content editor' => 'content editor',
     ),
     'module' => 'node',
   );
@@ -44,7 +43,6 @@ function luggage_resources_user_default_permissions() {
     'name' => 'edit any resource content',
     'roles' => array(
       'content editor' => 'content editor',
-      'content publisher' => 'content publisher',
     ),
     'module' => 'node',
   );
