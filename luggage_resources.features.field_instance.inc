@@ -160,7 +160,7 @@ function luggage_resources_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 5,
+      'weight' => 3,
     ),
   );
 
@@ -212,7 +212,7 @@ function luggage_resources_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 17,
+      'weight' => 4,
     ),
   );
 
@@ -278,7 +278,7 @@ One-day competition where high school students from across Iowa demonstrate thei
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 3,
+      'weight' => 6,
     ),
   );
 
@@ -500,7 +500,7 @@ One-day competition where high school students from across Iowa demonstrate thei
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 5,
+      'weight' => 7,
     ),
   );
 
