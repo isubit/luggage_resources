@@ -16,3 +16,9 @@ function luggage_resources_settings() {
 
   return system_settings_form($form);
 }
+
+function luggage_resources_settings_validate($form, &$form_state) {
+  if (!valid_url($form_state['values']['luggage_resources_screenshot_url'], true)) {
+    form_set_error('luggage_resources_screenshot_url', t("Please enter a valid URL."));
+  }
+}
