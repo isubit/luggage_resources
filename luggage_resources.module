@@ -142,22 +142,28 @@ function _luggage_resources_disabled_form_fields(&$form) {
   }
 }
 
+/**
+ * Implements hook_node_validate(). 
+ */
 function luggage_resources_form_resource_node_validate($form, &$form_state) {
-
-  // isolate entered url as variable
+  
+  // Easier to refer to entered URL.
   $url = $form_state['values']['field_uri'][LANGUAGE_NONE][0]['url'];
 
-  // return if url is not valid
-  if(!valid_url($url, TRUE)) {
+  // Fail validation if url is not valid.
+  if (!valid_url($url, TRUE)) {
     form_set_error($form['field_uri'][LANGUAGE_NONE][0]['url'], t('Please make sure to include a protocol (e.g. http://, https://, ftp://).'));
-  } else {
-
-  // Index the url if it is a new entry or set to be re-indexed
-  if (arg(1) == 'add' || $form_state['values']['field_resource_re_index'][LANGUAGE_NONE][0]['value'] == '1') _luggage_resources_index_url($form_state, $url);
-
-  // set re-index back to 0
-  $form_state['values']['field_resource_re_index'][LANGUAGE_NONE][0]['value'] = "0";
+    return;
+  } 
+  
+  // Index the url if it is a new entry or set to be re-indexed.
+  $reindex = $form_state['values']['field_resource_re_index'][LANGUAGE_NONE][0]['value'] == '1';
+  if (arg(1) == 'add' || $reindex ) {
+    _luggage_resources_index_url($form_state, $url);
   }
+
+  // Set reindex checkbox back to unchecked.
+  $form_state['values']['field_resource_re_index'][LANGUAGE_NONE][0]['value'] = "0";
 }
 
 function _luggage_resources_index_url(&$form_state, $url) {
@@ -231,16 +237,18 @@ function _luggage_resources_get_url_data($url) {
     if ($meta->getAttribute('name')) $data['meta']['name'][$meta->getAttribute('name')] = $meta->getAttribute('content');
     if ($meta->getAttribute('http-equiv')) $data['meta']['http-equiv'][$meta->getAttribute('http-equiv')] = $meta->getAttribute('content');
     if ($meta->getAttribute('property')) $data['meta']['property'][$meta->getAttribute('property')] = $meta->getAttribute('content');
-    // Need to grep for author <a href=”[profile_url]?rel=author”>Google</a>, and other things http://www.metatags.org/all_metatags
+    // Need to grep for author <a href=‚Äù[profile_url]?rel=author‚Äù>Google</a>, and other things http://www.metatags.org/all_metatags
   }
 
   return $data;
 }
 
 function _luggage_resources_build_form_state(&$form_state, $url_data, $reindex) {
-//  dsm($form_state, 'build_form_state $form_state');
 
-  $form_state['values']['field_resource_raw_title'][LANGUAGE_NONE][0]['value'] = (isset($url_data['title'])) ? $url_data['title'] : '';
+  // Because this is called from within validation, validation on
+  // string length has not been done; we truncate to field length
+  // defined in luggage_resources.features.field_base.inc.
+  $form_state['values']['field_resource_raw_title'][LANGUAGE_NONE][0]['value'] = (isset($url_data['title'])) ? substr($url_data['title'], 0, 255) : '';
   $form_state['values']['field_resource_raw_description'][LANGUAGE_NONE][0]['value'] = (isset($url_data['meta']['name']['description'])) ? $url_data['meta']['name']['description'] : '';
 
   $form_state['values']['field_resource_request_code'][LANGUAGE_NONE][0]['value'] = (isset($url_data['return']['code'])) ? $url_data['return']['code'] : '';
@@ -281,6 +289,12 @@ function _luggage_resources_build_form_state(&$form_state, $url_data, $reindex) 
   if (isset($url_data['meta']['name']['keywords'])) {
     $meta_keywords = explode(',', $url_data['meta']['name']['keywords']);
     foreach($meta_keywords as $keyword) {
+      // In English, keywords over 20 characters long are not reasonable. It is
+      // more likely that the web page used a delimiter other than a comma and
+      // the explode() above failed. Ignore and continue.
+      if (strlen($keyword) > 20) {
+        continue;
+      }
       $form_state['values']['field_resource_meta_keywords'][LANGUAGE_NONE][] = array(
         'tid' => 'autocreate',
         'vid' => $vid->vid,
