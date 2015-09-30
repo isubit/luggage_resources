@@ -11,7 +11,7 @@ function luggage_resources_settings() {
     '#type' => 'textfield',
     '#title' => t('URL of screenshot generator'),
     '#default_value' => variable_get('luggage_resources_screenshot_url', 'http://api.ent.iastate.edu/screenshot/generate.wsgi'),
-    '#description' => t('This is the service that generates the screenshot for Luggage resources nodes.<br />Be sure to include http:// or https://.')
+    '#description' => t('This is the service that generates the screenshot for Luggage Resource nodes.<br />Be sure to include http:// or https://.')
   );
 
   return system_settings_form($form);
