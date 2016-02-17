@@ -822,8 +822,8 @@ One-day competition where high school students from across Iowa demonstrate thei
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
-          'image_link' => '',
-          'image_style' => '',
+          'image_link' => 'content',
+          'image_style' => 'sceenshot_medium_200',
         ),
         'type' => 'image',
         'weight' => 1,
