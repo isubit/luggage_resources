@@ -142,9 +142,8 @@ function luggage_resources_field_default_field_instances() {
       ),
       'search_result' => array(
         'label' => 'inline',
-        'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'hidden',
         'weight' => 5,
       ),
     ),
@@ -194,9 +193,8 @@ function luggage_resources_field_default_field_instances() {
       ),
       'search_result' => array(
         'label' => 'inline',
-        'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'hidden',
         'weight' => 4,
       ),
     ),
@@ -822,12 +820,8 @@ One-day competition where high school students from across Iowa demonstrate thei
       ),
       'search_result' => array(
         'label' => 'hidden',
-        'module' => 'image',
-        'settings' => array(
-          'image_link' => 'content',
-          'image_style' => 'sceenshot_medium_200',
-        ),
-        'type' => 'image',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 2,
       ),
       'teaser' => array(
@@ -908,9 +902,8 @@ One-day competition where high school students from across Iowa demonstrate thei
       ),
       'search_result' => array(
         'label' => 'inline',
-        'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'hidden',
         'weight' => 6,
       ),
       'teaser' => array(
