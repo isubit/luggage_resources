@@ -72,7 +72,7 @@ function luggage_resources_ds_layout_settings_info() {
       'right' => 'div',
       'footer' => 'div',
     ),
-    'layout_wrapper' => 'div',
+    'layout_wrapper' => 'article',
     'layout_attributes' => '',
     'layout_attributes_merge' => 1,
     'layout_link_attribute' => '',
