@@ -36,7 +36,7 @@ function luggage_resources_update_projects_alter(&$projects) {
  * Implements hook_views_pre_render().
  */
 function luggage_resources_views_pre_render(&$view) {
-  $luggage_resources_view = array('luggage_resources', 'luggage_resources');
+  $luggage_resources_view = array('resources', 'luggage_resources');
   if (in_array($view->name, $luggage_resources_view)) {
     drupal_add_css(drupal_get_path('module', 'luggage_resources') . '/css/luggage_resources.css');
   }
