@@ -11,7 +11,7 @@ function luggage_resources_views_default_views() {
   $export = array();
 
   $view = new view();
-  $view->name = 'my_resources';
+  $view->name = 'resources';
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
