@@ -5,6 +5,7 @@ package = Luggage
 version = 7.x-3.5
 project = luggage_resources
 dependencies[] = ctools
+dependencies[] = ds
 dependencies[] = features
 dependencies[] = field_group
 dependencies[] = image
