@@ -1,25 +1,18 @@
-.link-field-url {
-    float:none;
+.field-name-field-uri {
+  font-size: 16px;
+  padding: 0px 15px;
+  font-style: italic;
 }
 
-.node-resource .field-name-field-resource-meta .field-item {
-  margin-right: .5em;
-  float:  left;
-  width: 100%;
+.field-name-field-resource-screenshot {
+  float: left;
+  padding: 15px 15px 15px 0px;
 }
 
-.node-resource .field-name-field-resource-meta .field-item.odd {
-  background-color:rgba(0,0,0,0.1);
+.field-name-field-resource-description {
+  padding: 15px 0px;
 }
 
-.node-resource .field-name-field-resource-meta .field-item .field-name-field-attribute-type .field-item {
-
-}
-
-.node-resource .field-name-field-resource-meta .field-item .field-name-field-attribute .field-item {
-
-}
-
-.node-resource .field-name-field-resource-meta .field-item .field-name-field-content .field-item {
-
+.field-name-field-category {
+  clear: both;
 }
