@@ -1,8 +1,12 @@
-/*-------full node view styling-------*/
+/*-------full node display styling-------*/
 
 .field-name-field-uri {
   padding: 0px 15px;
   font-style: italic;
+}
+
+.field-name-field-uri .field-item a {
+  color: rgb(36,109,73);
 }
 
 .field-name-field-resource-screenshot {
@@ -25,8 +29,8 @@
   border: 1px solid #ddd;
   margin: 0.25em;
   padding: 0.5em;
-  min-height: 250px;
-  max-height: 250px;
+  min-height: 310px;
+  max-height: 310px;
   float: left;
   width: 49%;
   overflow: hidden;
