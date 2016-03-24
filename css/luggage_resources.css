@@ -20,7 +20,7 @@
 
 /*-----resources grid view styling-----*/
 
-.view-display-id-resources_grid .views-row {
+.view-display-id-resource_grid .views-row {
   background: rgba(255, 255, 255, 0.7);
   border: 1px solid #ddd;
   margin: 0.25em;
@@ -40,7 +40,7 @@
   font-style: italic;
 }
 
-.views-field-field-uri-1 a {
+.views-field-field-uri-1 .field-content a {
   color: rgb(36,109,73);
 }
 
