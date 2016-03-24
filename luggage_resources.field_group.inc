@@ -316,7 +316,7 @@ function luggage_resources_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Retrieved Raw Metadata',
-    'weight' => '5',
+    'weight' => '8',
     'children' => array(
       0 => 'field_resource_meta_keywords',
       1 => 'field_resource_raw_description',
