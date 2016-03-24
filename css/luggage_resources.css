@@ -29,11 +29,13 @@
   border: 1px solid #ddd;
   margin: 0.25em;
   padding: 0.5em;
-  min-height: 310px;
-  max-height: 310px;
+  min-height: 250px;
   float: left;
   width: 49%;
-  overflow: hidden;
+}
+
+.view-resources.view-id-resources.view-display-id-resource_grid.resource-wrapper {
+  min-width: 480px
 }
 .views-field-title {
   padding: 10px 0px 0px 10px;
