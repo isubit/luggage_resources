@@ -1,3 +1,5 @@
+/*-------full node view styling-------*/
+
 .field-name-field-uri {
   padding: 0px 15px;
   font-style: italic;
@@ -14,4 +16,35 @@
 
 .field-name-field-category {
   clear: both;
+}
+
+/*-----resources grid view styling-----*/
+
+.view-display-id-resources_grid .views-row {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid #ddd;
+  margin: 0.25em;
+  padding: 0.5em;
+  min-height: 250px;
+  max-height: 250px;
+  float: left;
+  width: 49%;
+  overflow: hidden;
+}
+.views-field-title {
+  padding: 10px 0px 0px 10px;
+}
+
+.views-field-field-uri-1 {
+  padding: 0px 0px 15px 10px;
+  font-style: italic;
+}
+
+.views-field-field-uri-1 a {
+  color: rgb(36,109,73);
+}
+
+.views-field-field-resource-screenshot {
+  float: left;
+  padding: 5px 15px;
 }
