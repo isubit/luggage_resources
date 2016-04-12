@@ -10,7 +10,7 @@
 function luggage_resources_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'multifield-head_meta-field_attribute'
+  // Exported field_instance: 'multifield-head_meta-field_attribute'.
   $field_instances['multifield-head_meta-field_attribute'] = array(
     'bundle' => 'head_meta',
     'default_value' => NULL,
@@ -44,7 +44,7 @@ function luggage_resources_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'multifield-head_meta-field_attribute_type'
+  // Exported field_instance: 'multifield-head_meta-field_attribute_type'.
   $field_instances['multifield-head_meta-field_attribute_type'] = array(
     'bundle' => 'head_meta',
     'default_value' => NULL,
@@ -78,7 +78,7 @@ function luggage_resources_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'multifield-head_meta-field_content'
+  // Exported field_instance: 'multifield-head_meta-field_content'.
   $field_instances['multifield-head_meta-field_content'] = array(
     'bundle' => 'head_meta',
     'default_value' => NULL,
@@ -112,7 +112,7 @@ function luggage_resources_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-resource-field_category'
+  // Exported field_instance: 'node-resource-field_category'.
   $field_instances['node-resource-field_category'] = array(
     'bundle' => 'resource',
     'default_value' => NULL,
@@ -142,10 +142,9 @@ function luggage_resources_field_default_field_instances() {
       ),
       'search_result' => array(
         'label' => 'inline',
-        'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 5,
+        'type' => 'hidden',
+        'weight' => 4,
       ),
     ),
     'entity_type' => 'node',
@@ -164,7 +163,7 @@ function luggage_resources_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-resource-field_resource_category'
+  // Exported field_instance: 'node-resource-field_resource_category'.
   $field_instances['node-resource-field_resource_category'] = array(
     'bundle' => 'resource',
     'default_value' => NULL,
@@ -194,10 +193,9 @@ function luggage_resources_field_default_field_instances() {
       ),
       'search_result' => array(
         'label' => 'inline',
-        'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 4,
+        'type' => 'hidden',
+        'weight' => 3,
       ),
     ),
     'entity_type' => 'node',
@@ -216,7 +214,7 @@ function luggage_resources_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-resource-field_resource_description'
+  // Exported field_instance: 'node-resource-field_resource_description'.
   $field_instances['node-resource-field_resource_description'] = array(
     'bundle' => 'resource',
     'default_value' => NULL,
@@ -254,7 +252,7 @@ One-day competition where high school students from across Iowa demonstrate thei
           'trim_length' => 600,
         ),
         'type' => 'text_trimmed',
-        'weight' => 3,
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -282,7 +280,7 @@ One-day competition where high school students from across Iowa demonstrate thei
     ),
   );
 
-  // Exported field_instance: 'node-resource-field_resource_meta_keywords'
+  // Exported field_instance: 'node-resource-field_resource_meta_keywords'.
   $field_instances['node-resource-field_resource_meta_keywords'] = array(
     'bundle' => 'resource',
     'default_value' => NULL,
@@ -312,7 +310,7 @@ One-day competition where high school students from across Iowa demonstrate thei
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 7,
+        'weight' => 6,
       ),
     ),
     'entity_type' => 'node',
@@ -334,7 +332,7 @@ One-day competition where high school students from across Iowa demonstrate thei
     ),
   );
 
-  // Exported field_instance: 'node-resource-field_resource_raw_description'
+  // Exported field_instance: 'node-resource-field_resource_raw_description'.
   $field_instances['node-resource-field_resource_raw_description'] = array(
     'bundle' => 'resource',
     'default_value' => NULL,
@@ -364,7 +362,7 @@ One-day competition where high school students from across Iowa demonstrate thei
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 10,
+        'weight' => 9,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -392,7 +390,7 @@ One-day competition where high school students from across Iowa demonstrate thei
     ),
   );
 
-  // Exported field_instance: 'node-resource-field_resource_raw_title'
+  // Exported field_instance: 'node-resource-field_resource_raw_title'.
   $field_instances['node-resource-field_resource_raw_title'] = array(
     'bundle' => 'resource',
     'default_value' => NULL,
@@ -422,7 +420,7 @@ One-day competition where high school students from across Iowa demonstrate thei
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 8,
+        'weight' => 7,
       ),
     ),
     'entity_type' => 'node',
@@ -444,7 +442,7 @@ One-day competition where high school students from across Iowa demonstrate thei
     ),
   );
 
-  // Exported field_instance: 'node-resource-field_resource_re_index'
+  // Exported field_instance: 'node-resource-field_resource_re_index'.
   $field_instances['node-resource-field_resource_re_index'] = array(
     'bundle' => 'resource',
     'default_value' => array(
@@ -477,7 +475,7 @@ One-day competition where high school students from across Iowa demonstrate thei
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 11,
+        'weight' => 10,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -504,7 +502,7 @@ One-day competition where high school students from across Iowa demonstrate thei
     ),
   );
 
-  // Exported field_instance: 'node-resource-field_resource_request_code'
+  // Exported field_instance: 'node-resource-field_resource_request_code'.
   $field_instances['node-resource-field_resource_request_code'] = array(
     'bundle' => 'resource',
     'default_value' => NULL,
@@ -534,7 +532,7 @@ One-day competition where high school students from across Iowa demonstrate thei
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 13,
+        'weight' => 12,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -562,7 +560,7 @@ One-day competition where high school students from across Iowa demonstrate thei
     ),
   );
 
-  // Exported field_instance: 'node-resource-field_resource_request_error'
+  // Exported field_instance: 'node-resource-field_resource_request_error'.
   $field_instances['node-resource-field_resource_request_error'] = array(
     'bundle' => 'resource',
     'default_value' => NULL,
@@ -592,7 +590,7 @@ One-day competition where high school students from across Iowa demonstrate thei
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 12,
+        'weight' => 11,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -620,7 +618,7 @@ One-day competition where high school students from across Iowa demonstrate thei
     ),
   );
 
-  // Exported field_instance: 'node-resource-field_resource_request_inferred_'
+  // Exported field_instance: 'node-resource-field_resource_request_inferred_'.
   $field_instances['node-resource-field_resource_request_inferred_'] = array(
     'bundle' => 'resource',
     'default_value' => NULL,
@@ -650,7 +648,7 @@ One-day competition where high school students from across Iowa demonstrate thei
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 9,
+        'weight' => 8,
       ),
     ),
     'entity_type' => 'node',
@@ -672,7 +670,7 @@ One-day competition where high school students from across Iowa demonstrate thei
     ),
   );
 
-  // Exported field_instance: 'node-resource-field_resource_request_recode'
+  // Exported field_instance: 'node-resource-field_resource_request_recode'.
   $field_instances['node-resource-field_resource_request_recode'] = array(
     'bundle' => 'resource',
     'default_value' => NULL,
@@ -702,7 +700,7 @@ One-day competition where high school students from across Iowa demonstrate thei
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 14,
+        'weight' => 13,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -730,7 +728,7 @@ One-day competition where high school students from across Iowa demonstrate thei
     ),
   );
 
-  // Exported field_instance: 'node-resource-field_resource_request_reurl'
+  // Exported field_instance: 'node-resource-field_resource_request_reurl'.
   $field_instances['node-resource-field_resource_request_reurl'] = array(
     'bundle' => 'resource',
     'default_value' => NULL,
@@ -760,7 +758,7 @@ One-day competition where high school students from across Iowa demonstrate thei
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 15,
+        'weight' => 14,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -788,7 +786,7 @@ One-day competition where high school students from across Iowa demonstrate thei
     ),
   );
 
-  // Exported field_instance: 'node-resource-field_resource_screenshot'
+  // Exported field_instance: 'node-resource-field_resource_screenshot'.
   $field_instances['node-resource-field_resource_screenshot'] = array(
     'bundle' => 'resource',
     'deleted' => 0,
@@ -828,7 +826,7 @@ One-day competition where high school students from across Iowa demonstrate thei
           'image_style' => 'sceenshot_medium_200',
         ),
         'type' => 'image',
-        'weight' => 2,
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -878,7 +876,7 @@ One-day competition where high school students from across Iowa demonstrate thei
     ),
   );
 
-  // Exported field_instance: 'node-resource-field_tags'
+  // Exported field_instance: 'node-resource-field_tags'.
   $field_instances['node-resource-field_tags'] = array(
     'bundle' => 'resource',
     'default_value' => NULL,
@@ -908,10 +906,9 @@ One-day competition where high school students from across Iowa demonstrate thei
       ),
       'search_result' => array(
         'label' => 'inline',
-        'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 6,
+        'type' => 'hidden',
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -939,7 +936,7 @@ One-day competition where high school students from across Iowa demonstrate thei
     ),
   );
 
-  // Exported field_instance: 'node-resource-field_uri'
+  // Exported field_instance: 'node-resource-field_uri'.
   $field_instances['node-resource-field_uri'] = array(
     'bundle' => 'resource',
     'default_value' => NULL,
