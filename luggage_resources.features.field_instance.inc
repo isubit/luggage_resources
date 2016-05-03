@@ -295,66 +295,6 @@ One-day competition where high school students from across Iowa demonstrate thei
     ),
   );
 
-  // Exported field_instance: 'node-resource-field_resource_meta'.
-  $field_instances['node-resource-field_resource_meta'] = array(
-    'bundle' => 'resource',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'multifield',
-        'settings' => array(
-          'view_mode' => 'default',
-        ),
-        'type' => 'multifield_default',
-        'weight' => 12,
-      ),
-      'full' => array(
-        'label' => 'inline',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 7,
-      ),
-      'search_index' => array(
-        'label' => 'above',
-        'module' => 'multifield',
-        'settings' => array(
-          'view_mode' => 'default',
-        ),
-        'type' => 'multifield_default',
-        'weight' => 0,
-      ),
-      'search_result' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 6,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_resource_meta',
-    'label' => 'Resource Meta',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'multifield',
-      'settings' => array(),
-      'type' => 'multifield_default',
-      'weight' => 16,
-    ),
-  );
-
   // Exported field_instance: 'node-resource-field_resource_meta_keywords'.
   $field_instances['node-resource-field_resource_meta_keywords'] = array(
     'bundle' => 'resource',
@@ -973,66 +913,6 @@ One-day competition where high school students from across Iowa demonstrate thei
     ),
   );
 
-  // Exported field_instance: 'node-resource-field_resource_title'.
-  $field_instances['node-resource-field_resource_title'] = array(
-    'bundle' => 'resource',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => 'The title of this resource',
-    'display' => array(
-      'default' => array(
-        'label' => 'inline',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 1,
-      ),
-      'full' => array(
-        'label' => 'inline',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 6,
-      ),
-      'search_index' => array(
-        'label' => 'inline',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 1,
-      ),
-      'search_result' => array(
-        'label' => 'hidden',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 1,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_resource_title',
-    'label' => 'Title',
-    'required' => 1,
-    'settings' => array(
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 2,
-    ),
-  );
-
   // Exported field_instance: 'node-resource-field_tags'.
   $field_instances['node-resource-field_tags'] = array(
     'bundle' => 'resource',
@@ -1191,12 +1071,9 @@ One-day competition where high school students from across Iowa demonstrate thei
   t('Request Redirect Url');
   t('Resource Category');
   t('Resource Description');
-  t('Resource Meta');
   t('Screenshot');
   t('Tags');
-  t('The title of this resource');
   t('This field will be auto populated.');
-  t('Title');
   t('Uniform Resource Locator (URL)');
   t('content');
   t('resource meta keywords');
