@@ -45,7 +45,7 @@ function luggage_resources_strongarm() {
   $strongarm->value = array(
     'view_modes' => array(
       'teaser' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
       'full' => array(
         'custom_settings' => TRUE,
@@ -72,19 +72,19 @@ function luggage_resources_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'metatags' => array(
-          'weight' => '11',
+          'weight' => '10',
         ),
         'title' => array(
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '10',
+          'weight' => '9',
         ),
         'redirect' => array(
           'weight' => '9',
         ),
         'xmlsitemap' => array(
-          'weight' => '9',
+          'weight' => '8',
         ),
       ),
       'display' => array(),
