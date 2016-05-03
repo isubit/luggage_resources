@@ -32,6 +32,7 @@
   min-height: 300px;
   float: left;
   width: 49%;
+  overflow: hidden;
 }
 
 .view-resources.view-id-resources.view-display-id-resource_grid.resource-wrapper {
