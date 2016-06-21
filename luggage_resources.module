@@ -1,7 +1,8 @@
 <?php
 /**
  * @file
- * Code for the luggage_resources feature.
+ * Code for the luggage_resources feature. This feature creates a node with
+ * information about an external URL, including a screenshot.
  */
 
 include_once 'luggage_resources.features.inc';
@@ -172,8 +173,13 @@ function _luggage_resources_index_url(&$form_state, $url) {
   $url_data = _luggage_resources_get_url_data($url);
   _luggage_resources_build_form_state($form_state, $url_data, $form_state['values']['field_resource_re_index'][LANGUAGE_NONE][0]['value']);
 
-  // Get Screenshot into Drupal and add it to the form_state
-  $file = _luggage_resources_get_screenshot($url);
+  // Get Screenshot into Drupal and add it to the form_state.
+  if (isset($url_data['return']['preferred_screenshot_url'])) {
+    $file = system_retrieve_file($url_data['return']['preferred_screenshot_url'], NULL, TRUE, FILE_EXISTS_REPLACE);
+  }
+  else {
+    $file = _luggage_resources_get_screenshot($url);
+  }
   if ($file == 'FAIL') {
     drupal_set_message('Unable to download screenshot.', $type = 'error', $repeat = TRUE);
   } else {
@@ -195,7 +201,7 @@ function luggage_resources_field_uri_after_build($element, &$form_state) {
 
 function luggage_resources_add_after_build($form, &$form_state) {
 
-  // Suppress required during insert
+  // Suppress required during insert.
   $form['field_resource_description'][LANGUAGE_NONE][0]['value']['#required'] = FALSE;
   $form['field_tags'][LANGUAGE_NONE]['#required'] = FALSE;
   $form['field_category'][LANGUAGE_NONE]['#required'] = FALSE;
@@ -207,14 +213,16 @@ function _luggage_resources_get_url_data($url) {
   $nullmessage = '';
   $html = drupal_http_request($url);
 
-  $data['return']['code'] = (isset($html->code)) ? $html->code : $nullmessage;
-  $data['return']['error'] = (isset($html->error)) ? $html->error : $nullmessage;
-  $data['return']['redirect_code'] = (isset($html->redirect_code)) ? $html->redirect_code : $nullmessage;
-  $data['return']['redirect_url'] = (isset($html->redirect_url)) ? $html->redirect_url : $nullmessage;
+  $data['return']['code'] = isset($html->code) ? $html->code : $nullmessage;
+  $data['return']['error'] = isset($html->error) ? $html->error : $nullmessage;
+  $data['return']['redirect_code'] = isset($html->redirect_code) ? $html->redirect_code : $nullmessage;
+  $data['return']['redirect_url'] = isset($html->redirect_url) ? $html->redirect_url : $nullmessage;
+  $data['return']['url_actually_used'] = isset($html->redirect_url) ? $html->redirect_url : $url;
 
   if(!isset($html->data) && isset($html->redirect_url)) {
     $repaired_url = _luggage_resources_repair_url_using_redirect($url, $html->redirect_url);
     $data['return']['inferred_url'] = $repaired_url;
+    $data['return']['url_actually_used'] = $repaired_url;
     $html = drupal_http_request($repaired_url);
   }
 
@@ -222,7 +230,7 @@ function _luggage_resources_get_url_data($url) {
   if($html->code <= 0) return $data;
 
   $doc = new DOMDocument();
-  @$doc -> loadHTML($html->data);
+  $load_html_succeeded = @$doc->loadHTML($html->data);
   $nodes = $doc->getElementsByTagName('title');
   $data['title'] = $nodes->item(0)->nodeValue;
 
@@ -239,8 +247,25 @@ function _luggage_resources_get_url_data($url) {
     if ($meta->getAttribute('property')) $data['meta']['property'][$meta->getAttribute('property')] = $meta->getAttribute('content');
     // Need to grep for author <a href="profile_url]?rel=author">Google</a>, and other things http://www.metatags.org/all_metatags
   }
+  
+  // Support plugins. Plugins receive the DOMDocument instance and can populate $data. 
+  foreach (module_implements('luggage_resources_dom_data') as $module) {
+    $function = $module . '_luggage_resources_dom_data';
+    $function($doc, $data);
+  }
 
   return $data;
+}
+
+// Implements hook_luggage_resources_dom_data()
+function luggage_resources_luggage_resources_dom_data($doc, &$data) {
+  $parsed = parse_url($data['return']['url_actually_used']);
+  if ($parsed['host'] == 'store.extension.iastate.edu') {    
+    $product_image_element = $doc->getElementByID('ContentPlaceHolder1_lnkProductPreview');
+    if ($product_image_element !== NULL) {
+      $data['return']['preferred_screenshot_url'] = $product_image_element->getAttribute('href');
+    }
+  }  
 }
 
 function _luggage_resources_build_form_state(&$form_state, $url_data, $reindex) {
