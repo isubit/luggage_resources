@@ -265,6 +265,12 @@ function luggage_resources_luggage_resources_dom_data($doc, &$data) {
     if ($product_image_element !== NULL) {
       $data['return']['preferred_screenshot_url'] = $product_image_element->getAttribute('href');
     }
+    
+    $product_description_element = $doc->getElementByID('ContentPlaceHolder1_lblDescription');
+    if ($product_description_element !== NULL) {
+      $description = check_plain($product_description_element->nodeValue);
+      $data['meta']['name']['description'] = $description;
+    }
   }  
 }
 
