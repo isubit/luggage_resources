@@ -10,7 +10,7 @@
 function luggage_resources_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_attribute'
+  // Exported field_base: 'field_attribute'.
   $field_bases['field_attribute'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -31,7 +31,7 @@ function luggage_resources_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_attribute_type'
+  // Exported field_base: 'field_attribute_type'.
   $field_bases['field_attribute_type'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -52,7 +52,7 @@ function luggage_resources_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_content'
+  // Exported field_base: 'field_content'.
   $field_bases['field_content'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -71,7 +71,7 @@ function luggage_resources_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_resource_category'
+  // Exported field_base: 'field_resource_category'.
   $field_bases['field_resource_category'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -97,7 +97,7 @@ function luggage_resources_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_resource_description'
+  // Exported field_base: 'field_resource_description'.
   $field_bases['field_resource_description'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -116,7 +116,7 @@ function luggage_resources_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_resource_meta_keywords'
+  // Exported field_base: 'field_resource_meta_keywords'.
   $field_bases['field_resource_meta_keywords'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -142,7 +142,7 @@ function luggage_resources_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_resource_raw_description'
+  // Exported field_base: 'field_resource_raw_description'.
   $field_bases['field_resource_raw_description'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -161,7 +161,7 @@ function luggage_resources_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_resource_raw_title'
+  // Exported field_base: 'field_resource_raw_title'.
   $field_bases['field_resource_raw_title'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -182,7 +182,7 @@ function luggage_resources_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_resource_re_index'
+  // Exported field_base: 'field_resource_re_index'.
   $field_bases['field_resource_re_index'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -207,7 +207,7 @@ function luggage_resources_field_default_field_bases() {
     'type' => 'list_boolean',
   );
 
-  // Exported field_base: 'field_resource_request_code'
+  // Exported field_base: 'field_resource_request_code'.
   $field_bases['field_resource_request_code'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -228,7 +228,7 @@ function luggage_resources_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_resource_request_error'
+  // Exported field_base: 'field_resource_request_error'.
   $field_bases['field_resource_request_error'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -249,7 +249,7 @@ function luggage_resources_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_resource_request_inferred_'
+  // Exported field_base: 'field_resource_request_inferred_'.
   $field_bases['field_resource_request_inferred_'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -270,7 +270,7 @@ function luggage_resources_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_resource_request_recode'
+  // Exported field_base: 'field_resource_request_recode'.
   $field_bases['field_resource_request_recode'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -291,7 +291,7 @@ function luggage_resources_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_resource_request_reurl'
+  // Exported field_base: 'field_resource_request_reurl'.
   $field_bases['field_resource_request_reurl'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -312,7 +312,7 @@ function luggage_resources_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_resource_screenshot'
+  // Exported field_base: 'field_resource_screenshot'.
   $field_bases['field_resource_screenshot'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -334,7 +334,7 @@ function luggage_resources_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_uri'
+  // Exported field_base: 'field_uri'.
   $field_bases['field_uri'] = array(
     'active' => 1,
     'cardinality' => 1,

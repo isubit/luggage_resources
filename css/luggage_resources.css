@@ -1,25 +1,57 @@
-.link-field-url {
-    float:none;
+/*-------full node display styling-------*/
+
+.field-name-field-uri {
+  padding: 0px 15px;
+  font-style: italic;
 }
 
-.node-resource .field-name-field-resource-meta .field-item {
-  margin-right: .5em;
-  float:  left;
-  width: 100%;
+.field-name-field-uri .field-item a {
+  color: rgb(36,109,73);
 }
 
-.node-resource .field-name-field-resource-meta .field-item.odd {
-  background-color:rgba(0,0,0,0.1);
+.field-name-field-resource-screenshot {
+  float: left;
+  padding: 15px 15px 15px 0px;
 }
 
-.node-resource .field-name-field-resource-meta .field-item .field-name-field-attribute-type .field-item {
-
+.field-name-field-resource-description {
+  padding: 15px 0px;
 }
 
-.node-resource .field-name-field-resource-meta .field-item .field-name-field-attribute .field-item {
-
+.field-name-field-category {
+  clear: both;
 }
 
-.node-resource .field-name-field-resource-meta .field-item .field-name-field-content .field-item {
+/*-----resources grid view styling-----*/
 
+.view-display-id-resource_grid .views-row {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid #ddd;
+  margin: 0.25em;
+  padding: 0.5em;
+  min-height: 300px;
+  float: left;
+  width: 49%;
+  overflow: hidden;
+}
+
+.view-resources.view-id-resources.view-display-id-resource_grid.resource-wrapper {
+  min-width: 480px
+}
+.views-field-title {
+  padding: 10px 0px 0px 10px;
+}
+
+.views-field-field-uri-1 {
+  padding: 0px 0px 15px 10px;
+  font-style: italic;
+}
+
+.views-field-field-uri-1 .field-content a {
+  color: rgb(36,109,73);
+}
+
+.views-field-field-resource-screenshot {
+  float: left;
+  padding: 5px 15px;
 }

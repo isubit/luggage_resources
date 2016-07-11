@@ -8,7 +8,7 @@
  * Implements hook_field_group_info().
  */
 function luggage_resources_field_group_info() {
-  $export = array();
+  $field_groups = array();
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -39,7 +39,7 @@ function luggage_resources_field_group_info() {
       'formatter' => 'collapsed',
     ),
   );
-  $export['group_http_request|node|resource|default'] = $field_group;
+  $field_groups['group_http_request|node|resource|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -56,9 +56,9 @@ function luggage_resources_field_group_info() {
     'children' => array(
       0 => 'field_resource_request_code',
       1 => 'field_resource_request_error',
-      2 => 'field_resource_request_recode',
-      3 => 'field_resource_request_reurl',
-      4 => 'field_resource_request_inferred_',
+      2 => 'field_resource_request_inferred_',
+      3 => 'field_resource_request_recode',
+      4 => 'field_resource_request_reurl',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -71,7 +71,7 @@ function luggage_resources_field_group_info() {
       'formatter' => 'collapsed',
     ),
   );
-  $export['group_http_request|node|resource|form'] = $field_group;
+  $field_groups['group_http_request|node|resource|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -103,7 +103,7 @@ function luggage_resources_field_group_info() {
       'formatter' => 'collapsed',
     ),
   );
-  $export['group_http_request|node|resource|full'] = $field_group;
+  $field_groups['group_http_request|node|resource|full'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -135,7 +135,7 @@ function luggage_resources_field_group_info() {
       'formatter' => 'collapsed',
     ),
   );
-  $export['group_http_request|node|resource|search_index'] = $field_group;
+  $field_groups['group_http_request|node|resource|search_index'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -160,7 +160,7 @@ function luggage_resources_field_group_info() {
       ),
     ),
   );
-  $export['group_meta_tags|node|resource|default'] = $field_group;
+  $field_groups['group_meta_tags|node|resource|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -174,9 +174,7 @@ function luggage_resources_field_group_info() {
   $field_group->data = array(
     'label' => 'Meta Tags',
     'weight' => '12',
-    'children' => array(
-      0 => 'field_resource_meta',
-    ),
+    'children' => array(),
     'format_type' => 'fieldset',
     'format_settings' => array(
       'label' => 'Meta Tags',
@@ -188,7 +186,7 @@ function luggage_resources_field_group_info() {
       'formatter' => 'collapsed',
     ),
   );
-  $export['group_meta_tags|node|resource|form'] = $field_group;
+  $field_groups['group_meta_tags|node|resource|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -213,7 +211,7 @@ function luggage_resources_field_group_info() {
       'formatter' => 'collapsed',
     ),
   );
-  $export['group_meta_tags|node|resource|full'] = $field_group;
+  $field_groups['group_meta_tags|node|resource|full'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -240,7 +238,7 @@ function luggage_resources_field_group_info() {
       ),
     ),
   );
-  $export['group_meta_tags|node|resource|search_index'] = $field_group;
+  $field_groups['group_meta_tags|node|resource|search_index'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -272,7 +270,7 @@ function luggage_resources_field_group_info() {
       'formatter' => 'collapsible',
     ),
   );
-  $export['group_raw|node|resource|default'] = $field_group;
+  $field_groups['group_raw|node|resource|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -285,27 +283,27 @@ function luggage_resources_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Retrieved Raw Metadata',
-    'weight' => '6',
+    'weight' => '7',
     'children' => array(
-      0 => 'field_resource_raw_description',
-      1 => 'field_resource_screenshot',
+      0 => 'field_resource_meta_keywords',
+      1 => 'field_resource_raw_description',
       2 => 'field_resource_raw_title',
-      3 => 'field_resource_meta_keywords',
-      4 => 'group_http_request',
-      5 => 'group_meta_tags',
+      3 => 'group_http_request',
+      4 => 'group_meta_tags',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
       'label' => 'Retrieved Raw Metadata',
       'instance_settings' => array(
         'required_fields' => 1,
+        'id' => '',
         'classes' => 'group-raw field-group-fieldset',
         'description' => '',
       ),
-      'formatter' => 'collapsible',
+      'formatter' => 'collapsed',
     ),
   );
-  $export['group_raw|node|resource|form'] = $field_group;
+  $field_groups['group_raw|node|resource|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -318,7 +316,7 @@ function luggage_resources_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Retrieved Raw Metadata',
-    'weight' => '5',
+    'weight' => '8',
     'children' => array(
       0 => 'field_resource_meta_keywords',
       1 => 'field_resource_raw_description',
@@ -336,7 +334,7 @@ function luggage_resources_field_group_info() {
       'formatter' => 'collapsed',
     ),
   );
-  $export['group_raw|node|resource|full'] = $field_group;
+  $field_groups['group_raw|node|resource|full'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -369,7 +367,13 @@ function luggage_resources_field_group_info() {
       'formatter' => 'collapsible',
     ),
   );
-  $export['group_raw|node|resource|search_index'] = $field_group;
+  $field_groups['group_raw|node|resource|search_index'] = $field_group;
 
-  return $export;
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('HTTP Request');
+  t('Meta Tags');
+  t('Retrieved Raw Metadata');
+
+  return $field_groups;
 }

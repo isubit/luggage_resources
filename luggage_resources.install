@@ -10,3 +10,19 @@ function luggage_resources_enable() {
     ->condition('name', 'luggage_resources')
     ->execute();
 }
+
+/*
+ * Removes redundant fields: field_resource_meta and field_resource_title.
+ */
+function luggage_resources_update_7300() {
+  $fieldname0 = 'field_resource_meta';
+  $fieldname1 = 'field_resource_title';
+
+  if ($field = field_info_field($fieldname0)) {
+    field_delete_field($field);
+  }
+
+  if ($field = field_info_field($fieldname1)) {
+    field_delete_field($field);
+  }
+}
