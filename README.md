@@ -14,7 +14,7 @@ And instead of just having the title of the web page we are linking to, we have 
 
 And we automatically parse out metadata in the <head> element of the page.
 
-Creating a resource is easy. Enter the URL of the resource you want to add and Luggage will go out and get the screenshot, parse the metadata, and present it to you for final editing before the resource is added to your website. See the [step-by-step instructions](http://luggagedocs.info/luggage_doc/creating-resource).
+Creating a resource is easy. Enter the URL of the resource you want to add and Luggage will go out and get the screenshot, parse the metadata, and present it to you for final editing before the resource is added to your website. See the [step-by-step instructions](http://luggagedocs.info/creating-resource).
 
 Plugins
 ================
