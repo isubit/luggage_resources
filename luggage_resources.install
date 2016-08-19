@@ -11,7 +11,7 @@ function luggage_resources_enable() {
     ->execute();
 }
 
-/*
+/**
  * Removes redundant fields: field_resource_meta and field_resource_title.
  */
 function luggage_resources_update_7300() {
