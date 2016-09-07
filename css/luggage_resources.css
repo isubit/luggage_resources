@@ -24,7 +24,7 @@
 
 /*-----resources grid view styling-----*/
 
-.view-display-id-resource_grid .views-row {
+.view-id-resources .views-row {
   background: rgba(255, 255, 255, 0.7);
   border: 1px solid #ddd;
   margin: 0.25em;
@@ -35,8 +35,8 @@
   overflow: hidden;
 }
 
-.view-resources.view-id-resources.view-display-id-resource_grid.resource-wrapper {
-  min-width: 480px
+.view-resources.view-id-resources.resource-wrapper {
+  /* min-width: 480px */
 }
 .views-field-title {
   padding: 10px 0px 0px 10px;
@@ -54,4 +54,10 @@
 .views-field-field-resource-screenshot {
   float: left;
   padding: 5px 15px;
+}
+
+@media all and (max-width: 739px) {
+  .view-id-resources .views-row {
+    width: 100%;
+  }
 }
