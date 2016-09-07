@@ -81,8 +81,10 @@ function _luggage_resources_insert_after_first_element(&$a, $element) {
   }
 }
 
+/**
+ * Implememnts hook_form_FORMID_alter().
+ */
 function luggage_resources_form_resource_node_form_alter(&$form, &$form_state, $form_id) {
-
   // changes just to the insert form
   if(arg(1) == 'add') {
 
@@ -165,6 +167,12 @@ function luggage_resources_form_resource_node_validate($form, &$form_state) {
 
   // Set reindex checkbox back to unchecked.
   $form_state['values']['field_resource_re_index'][LANGUAGE_NONE][0]['value'] = "0";
+
+  // Set alt value for screenshot to title.
+  if (isset($form_state['values']['title'])) {
+    $form_state['values']['field_resource_screenshot']['und'][0]['alt'] = $form_state['values']['title'];
+  }
+
 }
 
 function _luggage_resources_index_url(&$form_state, $url) {
