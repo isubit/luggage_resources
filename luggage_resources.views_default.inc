@@ -23,7 +23,7 @@ function luggage_resources_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Resources';
-  $handler->display->display_options['css_class'] = 'resource-wrapper';
+  $handler->display->display_options['css_class'] = 'luggage-grid';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -88,7 +88,7 @@ function luggage_resources_views_default_views() {
   $handler->display->display_options['enabled'] = FALSE;
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['style_options']['row_class'] = 'clearfix';
+  $handler->display->display_options['style_options']['row_class'] = 'luggage-gridrow';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'ds';
@@ -110,7 +110,7 @@ function luggage_resources_views_default_views() {
   $handler = $view->new_display('page', 'Resource Grid', 'resource_grid');
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['style_options']['row_class'] = 'clearfix';
+  $handler->display->display_options['style_options']['row_class'] = 'luggage-gridrow';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -143,6 +143,7 @@ function luggage_resources_views_default_views() {
   $handler->display->display_options['fields']['field_uri_1']['table'] = 'field_data_field_uri';
   $handler->display->display_options['fields']['field_uri_1']['field'] = 'field_uri';
   $handler->display->display_options['fields']['field_uri_1']['label'] = '';
+  $handler->display->display_options['fields']['field_uri_1']['element_class'] = 'luggage-gridgreen';
   $handler->display->display_options['fields']['field_uri_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_uri_1']['click_sort_column'] = 'url';
   $handler->display->display_options['fields']['field_uri_1']['type'] = 'link_url';
