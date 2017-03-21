@@ -39,7 +39,8 @@ function luggage_resources_preprocess_page(&$vars) {
   if (!empty($node) && $node->type == 'resource' && arg(2) === null) {
     drupal_add_css(drupal_get_path('module', 'luggage_resources') . '/css/luggage_resources.css');
   }
-  if (arg(0) == 'node' && arg(1) == 'add' && arg(2) === 'resource') {
+  // Add styling for search results and node/add pages
+  if (arg(0) == 'search' || arg(0) == 'node' && arg(1) == 'add' && arg(2) === 'resource') {
     drupal_add_css(drupal_get_path('module', 'luggage_resources') . '/css/luggage_resources.css');
   }
 }
