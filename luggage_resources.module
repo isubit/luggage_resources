@@ -173,6 +173,8 @@ function _luggage_resources_index_url(&$form_state, $url) {
   // Get Screenshot into Drupal and add it to the form_state.
   if (isset($url_data['return']['preferred_screenshot_url'])) {
     $file = system_retrieve_file($url_data['return']['preferred_screenshot_url'], NULL, TRUE, FILE_EXISTS_REPLACE);
+    // Refresh image style derivatives.
+    image_path_flush($file->uri);
   }
   else {
     $file = _luggage_resources_get_screenshot($url);
@@ -367,6 +369,8 @@ function _luggage_resources_get_screenshot($url) {
   // Get contents and save into Drupal
   if (isset($screenshot->redirect_url)) {
     $file = system_retrieve_file($screenshot->redirect_url, NULL, TRUE, FILE_EXISTS_REPLACE);
+    // Refresh image style derivatives.
+    image_path_flush($file->uri);
     return $file;
   } else {
     return 'FAIL';
