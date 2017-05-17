@@ -74,6 +74,7 @@ features[field_instance][] = node-resource-field_tags
 features[field_instance][] = node-resource-field_uri
 features[image][] = sceenshot_medium_200
 features[image][] = screenshot_thumbnail
+features[metatag][] = node:resource
 features[multifield][] = head_meta
 features[node][] = resource
 features[taxonomy][] = meta_keywords
