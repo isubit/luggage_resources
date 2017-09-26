@@ -143,7 +143,7 @@ function luggage_resources_views_default_views() {
   $handler->display->display_options['fields']['field_uri_1']['table'] = 'field_data_field_uri';
   $handler->display->display_options['fields']['field_uri_1']['field'] = 'field_uri';
   $handler->display->display_options['fields']['field_uri_1']['label'] = '';
-  $handler->display->display_options['fields']['field_uri_1']['element_class'] = 'luggage-gridgreen';
+  $handler->display->display_options['fields']['field_uri_1']['element_type'] = 'em';
   $handler->display->display_options['fields']['field_uri_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_uri_1']['click_sort_column'] = 'url';
   $handler->display->display_options['fields']['field_uri_1']['type'] = 'link_url';
