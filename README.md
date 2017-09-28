@@ -23,7 +23,7 @@ Suppose you have a website that has a catalog of items, and when Luggage Resourc
 
 Here's an example. Suppose you want to use the product images from Amazon. You would write a site-specific module, say in sites/all/custom/sitespecific/sitespecific.module. In the module you would use the following code to tell Luggage Resources to use the product image in the 'data-old-hires' attribute of the landingImage element:
 
-````
+```php
 <?php
 
 // Implements hook_luggage_resources_dom_data()
@@ -38,13 +38,13 @@ function sitespecific_luggage_resources_dom_data($doc, &$data) {
     // No need to parse out description since Amazon puts it into meta tag
     // in <head> element, so luggage_resources will already have parsed it.
     
-    /**
+    /*
     $product_description_element = $doc->getElementByID('idGoesHere');
     if ($product_description_element !== NULL) {
       $description = check_plain($product_description_element->nodeValue);
       $data['meta']['name']['description'] = $description;
     }
-    **/
+    */
   }  
 }
-````
+```
