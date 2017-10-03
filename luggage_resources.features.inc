@@ -96,7 +96,7 @@ function luggage_resources_node_info() {
     'resource' => array(
       'name' => t('Resource'),
       'base' => 'node_content',
-      'description' => t('An external resource with a URI, such as a website'),
+      'description' => t('Highlight an external resource, such as a website, and add a description.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => t('Please search first, to make sure the resource is not already in the system.'),
