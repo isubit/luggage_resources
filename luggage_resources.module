@@ -339,7 +339,7 @@ function _luggage_resources_get_screenshot($url) {
   // Encode url and create query string.
   // Request Image from service
   $screenshot_url = variable_get('luggage_resources_screenshot_url', 'http://api.ent.iastate.edu/screenshot/generate.wsgi');
-  $screenshot = drupal_http_request($screenshot_url . '?' . drupal_http_build_query(array('uri' => urlencode($url))),$options = array('max_redirects' => 0));
+  $screenshot = drupal_http_request($screenshot_url . '?' . drupal_http_build_query(array('uri' => urlencode($url))),$options = array('max_redirects' => 0, 'timeout' => 120.0));
 
   // Get contents and save into Drupal
   if (isset($screenshot->redirect_url)) {
