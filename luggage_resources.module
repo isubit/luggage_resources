@@ -57,7 +57,7 @@ function luggage_resources_form_resource_node_form_alter(&$form, &$form_state, $
     while ($key = key($form)) {
       $key_prefix = substr($key, 0, 6);
       if ($key !== "field_uri" && $key_prefix === 'field_') {
-        $form[$key]['#type'] = 'hidden';
+        $form[$key]['#access'] = FALSE;
       }
       next($form);
     }
@@ -134,7 +134,7 @@ function luggage_resources_form_resource_node_validate($form, &$form_state) {
 
   // Set alt value for screenshot to title.
   if (isset($form_state['values']['title'])) {
-    $form_state['values']['field_resource_screenshot']['und'][0]['alt'] = $form_state['values']['title'];
+    $form_state['values']['field_resource_screenshot'][LANGUAGE_NONE][0]['alt'] = $form_state['values']['title'];
   }
 
 }
@@ -270,18 +270,20 @@ function _luggage_resources_build_form_state(&$form_state, $url_data, $reindex) 
   };
 
 //  Iterate through meta tags
-  reset($url_data['meta']);
-  while ($type = key($url_data['meta'])) {
-    reset($url_data['meta'][$type]);
-    while ($value = key($url_data['meta'][$type])) {
-      $head_meta = array();
-      $head_meta['field_attribute_type'][LANGUAGE_NONE][0]['value'] = (isset($url_data['meta'][$type])) ? $type : '';
-      $head_meta['field_attribute'][LANGUAGE_NONE][0]['value'] = (isset($url_data['meta'][$type][$value])) ? $value : '';
-      $head_meta['field_content'][LANGUAGE_NONE][0]['value'] = (isset($url_data['meta'][$type][$value])) ? $url_data['meta'][$type][$value] : '';
-      $form_state['values']['field_resource_meta'][LANGUAGE_NONE][] = $head_meta;
-      next($url_data['meta'][$type]);
+  if (isset($url_data['meta'])) {
+    reset($url_data['meta']);
+    while ($type = key($url_data['meta'])) {
+      reset($url_data['meta'][$type]);
+      while ($value = key($url_data['meta'][$type])) {
+        $head_meta = [];
+        $head_meta['field_attribute_type'][LANGUAGE_NONE][0]['value'] = (isset($url_data['meta'][$type])) ? $type : '';
+        $head_meta['field_attribute'][LANGUAGE_NONE][0]['value'] = (isset($url_data['meta'][$type][$value])) ? $value : '';
+        $head_meta['field_content'][LANGUAGE_NONE][0]['value'] = (isset($url_data['meta'][$type][$value])) ? $url_data['meta'][$type][$value] : '';
+        $form_state['values']['field_resource_meta'][LANGUAGE_NONE][] = $head_meta;
+        next($url_data['meta'][$type]);
+      }
+      next($url_data['meta']);
     }
-    next($url_data['meta']);
   }
 
   // Set URL title
