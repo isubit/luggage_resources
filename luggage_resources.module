@@ -235,9 +235,17 @@ function _luggage_resources_get_url_data($url) {
 function luggage_resources_luggage_resources_dom_data($doc, &$data) {
   $parsed = parse_url($data['return']['url_actually_used']);
   if ($parsed['host'] == 'store.extension.iastate.edu') {    
-    $product_image_element = $doc->getElementByID('ContentPlaceHolder1_lnkProductPreview');
-    if ($product_image_element !== NULL) {
-      $data['return']['preferred_screenshot_url'] = $product_image_element->getAttribute('href');
+
+    // Get screenshot from meta og:image.
+    $metas = $doc->getElementsByTagName('meta');
+    foreach ($metas as $meta) {
+      foreach ($meta->attributes as $attr) {
+        if ($attr->name == 'property' && $attr->value == 'og:image') {
+          // str_replace backslashes with forward slashes because the value for og:image
+          // redirects to the version with the forward slashes.
+          $data['return']['preferred_screenshot_url'] = str_replace('\\', '/', $meta->getAttribute('content'));
+        }
+      }
     }
     
     $product_description_element = $doc->getElementByID('ContentPlaceHolder1_lblDescription');
