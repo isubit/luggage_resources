@@ -241,9 +241,11 @@ function luggage_resources_luggage_resources_dom_data($doc, &$data) {
     foreach ($metas as $meta) {
       foreach ($meta->attributes as $attr) {
         if ($attr->name == 'property' && $attr->value == 'og:image') {
-          // str_replace backslashes with forward slashes because the value for og:image
-          // redirects to the version with the forward slashes.
-          $data['return']['preferred_screenshot_url'] = str_replace('\\', '/', $meta->getAttribute('content'));
+          if ($meta->getAttribute('content') !== NULL) {
+            // str_replace backslashes with forward slashes because the value for og:image
+            // redirects to the version with the forward slashes.
+            $data['return']['preferred_screenshot_url'] = str_replace('\\', '/', $meta->getAttribute('content'));
+          }
         }
       }
     }
