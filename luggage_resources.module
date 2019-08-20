@@ -89,7 +89,6 @@ function _luggage_resources_disabled_form_fields(&$form) {
     'field_resource_raw_title',
     'field_resource_raw_description',
     'field_resource_meta_keywords',
-    'field_resource_screenshot',
     'field_resource_request_error',
     'field_resource_request_code',
     'field_resource_request_recode',
